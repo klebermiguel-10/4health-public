@@ -490,12 +490,110 @@
   }
 
   /* ===== RESPONSIVE ===== */
+
+  /* Tablet */
   @media (max-width: 900px) {
     .nucleus-grid, .nucleus-grid-3 { grid-template-columns: 1fr; }
     .branch-split { flex-direction: column; align-items: center; gap: 16px; }
     .branch-split::before { display: none; }
     .header .stats { gap: 16px; }
-    .veto-grid { grid-template-columns: 1fr; }
+    .veto-grid { grid-template-columns: 1fr 1fr; }
+    .frontier-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .container { padding: 24px 12px; }
+
+    /* Header */
+    .header h1 { font-size: 22px; }
+    .header .subtitle { font-size: 11px; }
+    .header .stats { gap: 12px; }
+    .stat-value { font-size: 22px; }
+    .stat-label { font-size: 9px; letter-spacing: 0.5px; }
+    .header::after { width: 120px; }
+    .header { margin-bottom: 32px; }
+
+    /* Section */
+    .section { margin-bottom: 32px; }
+    .section-title { font-size: 12px; letter-spacing: 1.5px; margin-bottom: 14px; }
+
+    /* Cards hierarquia */
+    .card { padding: 12px 14px; min-width: 100px; }
+    .card-name { font-size: 13px; }
+    .card-role { font-size: 10px; }
+    .card-badge { font-size: 8px; padding: 2px 6px; }
+    .connector-v.long { height: 20px; }
+    .connector-v { height: 16px; }
+    .branch-split { gap: 10px; }
+
+    /* Nucleos */
+    .nucleus { padding: 16px 14px; }
+    .nucleus-name { font-size: 13px; }
+    .nucleus-icon { width: 30px; height: 30px; font-size: 15px; }
+
+    /* Members */
+    .member { padding: 8px 10px; gap: 8px; }
+    .member-avatar { width: 28px; height: 28px; font-size: 11px; }
+    .member-name { font-size: 12px; }
+    .member-spec { font-size: 9px; }
+    .member-tag { font-size: 8px; padding: 2px 5px; }
+
+    /* Flow steps — wrap e scroll horizontal */
+    .flow { padding: 10px 12px; margin-top: 10px; }
+    .flow-label { font-size: 9px; }
+    .flow-steps { gap: 3px; }
+    .flow-step { font-size: 10px; padding: 2px 7px; }
+    .flow-arrow { font-size: 12px; }
+
+    /* Veto grid */
+    .veto-grid { grid-template-columns: 1fr; gap: 8px; }
+    .veto-card { padding: 10px 12px; gap: 10px; }
+    .veto-icon { width: 30px; height: 30px; font-size: 14px; }
+    .veto-name { font-size: 12px; }
+    .veto-domain { font-size: 9px; }
+
+    /* Frontier */
+    .frontier-grid { grid-template-columns: 1fr; gap: 6px; }
+    .frontier-item { padding: 8px 10px; }
+    .frontier-domain { font-size: 11px; }
+    .frontier-owner { font-size: 10px; }
+
+    /* Squad MKT */
+    .squad-members-grid { grid-template-columns: 1fr 1fr; gap: 5px; }
+
+    /* Mapa consolidado */
+    .section > div[style*="grid-template-columns: repeat(auto-fill"] {
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+      gap: 6px !important;
+    }
+    .section > div[style*="grid-template-columns: repeat(auto-fill"] > div {
+      padding: 8px !important;
+    }
+    .section > div[style*="grid-template-columns: repeat(auto-fill"] > div > div:first-child {
+      font-size: 10px !important;
+    }
+
+    /* Footer */
+    .footer { padding-top: 20px; }
+    .footer p { font-size: 10px; }
+  }
+
+  /* Small mobile (iPhone SE, Galaxy S) */
+  @media (max-width: 380px) {
+    .container { padding: 16px 8px; }
+    .header h1 { font-size: 18px; }
+    .header .stats { gap: 8px; }
+    .stat-value { font-size: 18px; }
+    .card { min-width: 80px; padding: 10px 10px; }
+    .card-name { font-size: 12px; }
+    .branch-split { gap: 6px; }
+    .nucleus { padding: 12px 10px; }
+    .squad-members-grid { grid-template-columns: 1fr; }
+    .flow-steps { flex-wrap: wrap; }
+    .section > div[style*="grid-template-columns: repeat(auto-fill"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
   }
 
   @media print {
