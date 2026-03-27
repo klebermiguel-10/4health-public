@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossie Premium — Santiago com Renata & Artur | Junho 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+  :root {
+    --primary: #1a365d;
+    --accent: #c4a265;
+    --accent-light: #f5eedd;
+    --text: #2d3748;
+    --text-light: #718096;
+    --bg: #ffffff;
+    --bg-alt: #f7fafc;
+    --border: #e2e8f0;
+    --danger: #c53030;
+    --success: #276749;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    background: var(--bg);
+    font-size: 14px;
+  }
+
+  @media print {
+    body { font-size: 11pt; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .cover { min-height: 100vh; }
+  }
+
+  /* Cover */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 50%, #1a365d 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(196, 162, 101, 0.1) 0%, transparent 50%);
+  }
+
+  .cover-badge {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 30px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+  }
+
+  .cover h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 40px;
+  }
+
+  .cover-line {
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 auto 40px;
+  }
+
+  .cover-details {
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    line-height: 2;
+  }
+
+  .cover-details strong {
+    color: white;
+    font-weight: 500;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* Content */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--primary);
+    margin: 50px 0 8px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 30px 0 12px;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 20px 0 8px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13px;
+  }
+
+  thead th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) { background: var(--bg-alt); }
+  tbody tr:hover { background: #edf2f7; }
+
+  /* Cards */
+  .card {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .card-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+
+  .card p { margin-bottom: 6px; }
+
+  /* Rating badges */
+  .rating {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .rating-sp { background: #fefcbf; color: #975a16; }
+  .rating-s { background: #c6f6d5; color: #276749; }
+  .rating-a { background: #bee3f8; color: #2a4365; }
+
+  /* Alert boxes */
+  .alert {
+    border-left: 4px solid var(--danger);
+    background: #fff5f5;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .alert-title {
+    color: var(--danger);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .tip {
+    border-left: 4px solid var(--success);
+    background: #f0fff4;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tip-title {
+    color: var(--success);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  /* Questionnaire */
+  .questionnaire {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 24px 0;
+  }
+
+  .questionnaire h3 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .question {
+    margin: 18px 0;
+    padding-left: 0;
+  }
+
+  .question-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .question-text {
+    display: inline-block;
+    width: calc(100% - 45px);
+    vertical-align: top;
+  }
+
+  .question-text strong { color: var(--primary); }
+
+  .options {
+    margin: 6px 0 0 38px;
+    list-style: none;
+  }
+
+  .options li {
+    padding: 3px 0;
+    color: var(--text-light);
+  }
+
+  .options li::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--border);
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  .answer-line {
+    display: block;
+    margin: 8px 0 0 38px;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    width: calc(100% - 38px);
+    padding: 6px 0;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+    background: transparent;
+  }
+
+  /* Section labels */
+  .section-label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* Footer */
+  .doc-footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  ul { margin: 8px 0 16px 20px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+  <div class="cover-badge">Beth Travel Planning &bull; Premium Dossier</div>
+  <h1>Santiago, Chile</h1>
+  <h2>Renata & Artur</h2>
+  <div class="cover-line"></div>
+  <div class="cover-details">
+    <strong>Junho 2026</strong> &mdash; 7 Noites<br>
+    Inverno Chileno &bull; 2&deg;C a 14&deg;C<br>
+    Viagem em Familia &bull; Planejamento Premium
+  </div>
+  <div class="cover-footer">Preparado por Beth &mdash; Assistente Executiva Digital &mdash; KM Tech</div>
+</div>
+
+<!-- CONTEUDO -->
+<div class="content">
+
+<h2>1. Visao Geral</h2>
+<p>Este dossie consolida pesquisa premium para a viagem de <strong>Dra. Renata</strong> (36 anos, medica) e <strong>Artur</strong> (10 anos) a Santiago do Chile em junho de 2026. Sete noites no inverno chileno, combinando cultura, gastronomia, neve e experiencias unicas para a familia.</p>
+
+<div class="card">
+  <div class="card-title">Dados do Destino</div>
+  <p><strong>Voo SP &rarr; SCL:</strong> ~4h direto (LATAM/GOL) &bull; <strong>Fuso:</strong> GMT-3 (mesmo de Brasilia no inverno) &bull; <strong>Moeda:</strong> Peso Chileno (CLP) &bull; <strong>Idioma:</strong> Espanhol &bull; <strong>Docs:</strong> RG ou Passaporte (sem visto)</p>
+</div>
+
+<!-- HOTEIS -->
+<h2>2. Hoteis Recomendados</h2>
+<p>Selecionados por qualidade, programas de fidelidade e adequacao para familia com crianca de 10 anos.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hotel</th>
+      <th>Categoria</th>
+      <th>Programa</th>
+      <th>Diaria (USD)</th>
+      <th>Destaque Familia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>W Santiago</strong></td>
+      <td>5 estrelas</td>
+      <td>Marriott Bonvoy</td>
+      <td>180 &ndash; 220</td>
+      <td>Piscina aquecida, WET Deck, Las Condes</td>
+    </tr>
+    <tr>
+      <td><strong>The Ritz-Carlton Santiago</strong></td>
+      <td>5 estrelas</td>
+      <td>Marriott Bonvoy</td>
+      <td>280 &ndash; 350</td>
+      <td>Club Lounge, piscina indoor, vista Andes</td>
+    </tr>
+    <tr>
+      <td><strong>Mandarin Oriental</strong></td>
+      <td>5 estrelas</td>
+      <td>Fans of MO</td>
+      <td>350 &ndash; 450</td>
+      <td>Spa termal, kids amenities, concierge</td>
+    </tr>
+    <tr>
+      <td><strong>Noi Vitacura</strong></td>
+      <td>Boutique</td>
+      <td>&mdash;</td>
+      <td>150 &ndash; 180</td>
+      <td>Suites amplas, bairro calmo, gastronomia</td>
+    </tr>
+    <tr>
+      <td><strong>Cumbres Lastarria</strong></td>
+      <td>4 estrelas</td>
+      <td>Accor ALL (Livelo)</td>
+      <td>120 &ndash; 160</td>
+      <td>Bairro artistico, rooftop, quartos familia</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <div class="tip-title">Recomendacao Beth</div>
+  <p><strong>W Santiago</strong> &mdash; melhor custo-beneficio premium. Acumula Marriott Bonvoy, localizacao excelente em Las Condes, e o Artur vai amar a piscina aquecida. Para upgrade maximo: Ritz-Carlton.</p>
+</div>
+
+<!-- EXPERIENCIAS -->
+<div class="page-break"></div>
+<h2>3. Experiencias Curadas</h2>
+
+<h3><span class="rating rating-sp">S+</span> Experiencias Obrigatorias</h3>
+
+<div class="card">
+  <div class="card-title">Pailalen Observatorio Astronomico</div>
+  <p>A 45 minutos de Santiago. Telescopios profissionais, guia bilingue, chocolate quente incluso. Noite magica para Artur &mdash; vera crateras da Lua e aneis de Saturno a olho nu. Temperatura: ~0&deg;C, levar roupas termicas.</p>
+  <p><strong>Reserva:</strong> com 30 dias de antecedencia &bull; <strong>Duracao:</strong> 3-4 horas &bull; <strong>Custo:</strong> ~USD 80/pessoa</p>
+</div>
+
+<div class="card">
+  <div class="card-title">Termas Jahuel</div>
+  <p>Resort termal a 1h30 de Santiago, acesso 100% asfaltado (seguro no inverno). Piscinas aquecidas ao ar livre com vista para os Andes nevados. Perfeito para Renata relaxar. Opcao day-use ou pernoite.</p>
+  <p><strong>Reserva:</strong> com 15 dias &bull; <strong>Duracao:</strong> dia inteiro &bull; <strong>Custo:</strong> ~USD 60-90/pessoa (day-use)</p>
+</div>
+
+<div class="card">
+  <div class="card-title">Valparaiso &mdash; Street Art & Funiculares</div>
+  <p>Cidade Patrimonio UNESCO a 1h20 de Santiago. Grafites monumentais, funiculares centenarios (Artur vai adorar!), empanadas na rua, vista do Pacifico. Tour a pe gratuito para criancas &lt;12 anos.</p>
+  <p><strong>Duracao:</strong> dia inteiro (saida cedo, volta ao anoitecer) &bull; <strong>Custo:</strong> transfer ~USD 120 ida e volta</p>
+</div>
+
+<h3><span class="rating rating-s">S</span> Altamente Recomendadas</h3>
+
+<div class="card">
+  <div class="card-title">Cookex Cooking Class</div>
+  <p>Aula de culinaria chilena em familia: empanadas + ceviche + pisco sour (versao kid-friendly para Artur). Em espanhol e ingles. Artur participa ativamente em todas as etapas.</p>
+  <p><strong>Duracao:</strong> 3 horas &bull; <strong>Custo:</strong> ~USD 70/pessoa</p>
+</div>
+
+<div class="card">
+  <div class="card-title">Cajon del Maipo</div>
+  <p>Vale andino a 1h de Santiago. Trilhas leves, cachoeiras, almoco em cabana com lareira. Paisagem de tirar o folego no inverno. Verificar condicoes da estrada antes de ir.</p>
+  <p><strong>Duracao:</strong> dia inteiro &bull; <strong>Custo:</strong> transfer + almoco ~USD 100/pessoa</p>
+</div>
+
+<div class="card">
+  <div class="card-title">SkiDay Farellones</div>
+  <p>Estacao de ski para iniciantes a 1h30 de Santiago. Pacote inclui transfer + equipamento + aula. Artur esta na idade perfeita para primeira experiencia na neve. Renata pode esquiar ou relaxar no lodge.</p>
+  <p><strong>Duracao:</strong> dia inteiro &bull; <strong>Custo:</strong> ~USD 120/pessoa (pacote completo)</p>
+</div>
+
+<h3><span class="rating rating-a">A</span> Excelentes</h3>
+
+<div class="card">
+  <div class="card-title">Museo Interactivo Mirador (MIM)</div>
+  <p>Museu de ciencias 100% interativo. Experiencias de fisica, robotica, espaco. Meia-dia perfeito para Artur em dia de chuva.</p>
+  <p><strong>Duracao:</strong> 3-4 horas &bull; <strong>Custo:</strong> ~USD 8/pessoa</p>
+</div>
+
+<div class="card">
+  <div class="card-title">Mercado Central</div>
+  <p>Almoco obrigatorio de frutos do mar. Pedir <em>caldillo de congrio</em> (sopa de congro &mdash; prato nacional). Arquitetura de ferro do seculo XIX.</p>
+  <p><strong>Duracao:</strong> 1.5 hora &bull; <strong>Custo:</strong> ~USD 25/pessoa</p>
+</div>
+
+<div class="card">
+  <div class="card-title">Cerro San Cristobal</div>
+  <p>Funicular ate o mirante com vista panoramica de Santiago + cordilheira. Zoologico no topo. Otimo para fotos da familia com Andes ao fundo.</p>
+  <p><strong>Duracao:</strong> 2-3 horas &bull; <strong>Custo:</strong> ~USD 10/pessoa</p>
+</div>
+
+<!-- ALERTAS -->
+<div class="page-break"></div>
+<h2>4. Alertas Criticos de Seguranca</h2>
+
+<div class="alert">
+  <div class="alert-title">Embalse el Yeso &mdash; FECHADO no Inverno</div>
+  <p>Embora seja um dos pontos mais fotografados do Chile, o Embalse el Yeso fica em altitude elevada e a estrada congela entre maio e setembro. <strong>NAO agendar.</strong> Risco real de acidentes com gelo negro na estrada. Nenhuma operadora seria oferece esse passeio no inverno.</p>
+</div>
+
+<div class="alert">
+  <div class="alert-title">Termas Colina &mdash; Alto Risco com Crianca</div>
+  <p>As Termas de Colina sao espetaculares (piscinas naturais a 3.500m), mas exigem veiculo 4x4, estrada de terra em condicoes precarias no inverno. Com crianca de 10 anos, o risco nao compensa. <strong>Alternativa segura:</strong> Termas Jahuel (acesso asfaltado, mesmo nivel de beleza).</p>
+</div>
+
+<div class="alert">
+  <div class="alert-title">Borago &mdash; Reserva com 90 Dias</div>
+  <p>O restaurante #1 da America Latina (50 Best) nao aceita criancas &lt;12 no jantar principal de degustacao. <strong>Solucao:</strong> almoco degustacao (aceita criancas). Reservar ate final de marco/2026 para garantir mesa em junho.</p>
+</div>
+
+<!-- GASTRONOMIA -->
+<h2>5. Gastronomia Premium</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurante</th>
+      <th>Estilo</th>
+      <th>Budget/Pessoa (USD)</th>
+      <th>Kids-Friendly</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Borago</strong></td>
+      <td>Tasting menu autoral</td>
+      <td>200</td>
+      <td>So almoco</td>
+    </tr>
+    <tr>
+      <td><strong>Osaka Santiago</strong></td>
+      <td>Nikkei (japones-peruano)</td>
+      <td>80</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><strong>Mestizo</strong></td>
+      <td>Chilena contemporanea</td>
+      <td>50</td>
+      <td>Sim, menu kids</td>
+    </tr>
+    <tr>
+      <td><strong>Liguria</strong></td>
+      <td>Bistro classico</td>
+      <td>30</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><strong>Emporio La Rosa</strong></td>
+      <td>Sorvetes/gelatos artesanais</td>
+      <td>10</td>
+      <td>Artur vai amar</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- LOGISTICA -->
+<h2>6. Logistica & Transfer</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Recomendacao</th>
+      <th>Custo Estimado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Transfer Aeroporto</strong></td>
+      <td>VIP privado (reservar antecipado)</td>
+      <td>USD 45 &ndash; 60</td>
+    </tr>
+    <tr>
+      <td><strong>Deslocamento na cidade</strong></td>
+      <td>Uber/Cabify funcionam bem</td>
+      <td>USD 5 &ndash; 15/corrida</td>
+    </tr>
+    <tr>
+      <td><strong>Cambio</strong></td>
+      <td>Levar USD cash, trocar em casas de cambio (NaO no aeroporto)</td>
+      <td>&mdash;</td>
+    </tr>
+    <tr>
+      <td><strong>Chip Celular</strong></td>
+      <td>Entel ou WOM no aeroporto, 30 dias dados ilimitados</td>
+      <td>USD 10</td>
+    </tr>
+    <tr>
+      <td><strong>Seguro Viagem</strong></td>
+      <td>Obrigatorio &mdash; com cobertura ski se fizerem Farellones</td>
+      <td>USD 80 &ndash; 120/familia</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <div class="tip-title">Dica Premium</div>
+  <p><strong>Fuso horario:</strong> GMT-3 no inverno &mdash; mesmo de Brasilia. Sem jet lag! &bull; <strong>Documentos:</strong> RG valido basta (passaporte nao e obrigatorio). &bull; <strong>Tomada:</strong> Tipo C/L &mdash; levar adaptador universal.</p>
+</div>
+
+<!-- QUESTIONARIOS -->
+<div class="page-break"></div>
+<h2>7. Questionario Personalizado</h2>
+<p>Para criar um roteiro dia-a-dia hiperpersonalizado, preciso que Renata e Artur respondam as perguntas abaixo. Sem resposta certa ou errada &mdash; o objetivo e entender o que cada um realmente quer dessa viagem.</p>
+
+<!-- RENATA -->
+<div class="questionnaire">
+  <h3>Questionario &mdash; Dra. Renata</h3>
+  <p style="color: var(--text-light); font-style: italic; margin-bottom: 24px;">Responda de 1 a 5, escolha a opcao ou escreva livremente.</p>
+
+  <span class="section-label">Ritmo & Estilo</span>
+
+  <div class="question">
+    <span class="question-num">1</span>
+    <span class="question-text"><strong>Ritmo ideal da viagem:</strong></span>
+    <ul class="options">
+      <li>Programacao intensa, aproveitar cada minuto</li>
+      <li>Manhas livres, atividades a tarde</li>
+      <li>1 atividade por dia + muito tempo livre</li>
+      <li>Sem roteiro, decidir no dia</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">2</span>
+    <span class="question-text"><strong>Manhas de ferias ideal:</strong></span>
+    <ul class="options">
+      <li>Acordar cedo e sair</li>
+      <li>Cafe da manha longo e calmo no hotel</li>
+      <li>Spa/piscina antes de qualquer coisa</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">3</span>
+    <span class="question-text"><strong>Quantas noites voce toparia jantar fora em restaurante "experiencia" (degustacao, chef's table)?</strong></span>
+    <ul class="options">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3 ou mais</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">4</span>
+    <span class="question-text"><strong>Compras sao parte importante da viagem?</strong></span>
+    <ul class="options">
+      <li>Sim, quero tempo dedicado</li>
+      <li>So se sobrar tempo</li>
+      <li>Nao faz diferenca</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Experiencias (1 a 5)</span>
+
+  <div class="question">
+    <span class="question-num">5</span>
+    <span class="question-text"><strong>Termas ao ar livre com vista para os Andes nevados:</strong></span>
+    <input class="answer-line" type="text" placeholder="1 (zero interesse) a 5 (preciso disso)">
+  </div>
+
+  <div class="question">
+    <span class="question-num">6</span>
+    <span class="question-text"><strong>Day trip para Valparaiso (cidade colorida, arte de rua, porto):</strong></span>
+    <input class="answer-line" type="text" placeholder="1 a 5">
+  </div>
+
+  <div class="question">
+    <span class="question-num">7</span>
+    <span class="question-text"><strong>Aula de culinaria chilena em familia:</strong></span>
+    <input class="answer-line" type="text" placeholder="1 a 5">
+  </div>
+
+  <div class="question">
+    <span class="question-num">8</span>
+    <span class="question-text"><strong>Dia de ski/neve (iniciante, com instrutor):</strong></span>
+    <input class="answer-line" type="text" placeholder="1 a 5">
+  </div>
+
+  <div class="question">
+    <span class="question-num">9</span>
+    <span class="question-text"><strong>Observatorio de astronomia a noite (frio, mas magico):</strong></span>
+    <input class="answer-line" type="text" placeholder="1 a 5">
+  </div>
+
+  <div class="question">
+    <span class="question-num">10</span>
+    <span class="question-text"><strong>Spa day so para voce (enquanto Kleber fica com Artur):</strong></span>
+    <input class="answer-line" type="text" placeholder="1 a 5">
+  </div>
+
+  <span class="section-label">Alimentacao</span>
+
+  <div class="question">
+    <span class="question-num">11</span>
+    <span class="question-text"><strong>Alguma restricao alimentar?</strong> (alergia, intolerancia, vegetariana, etc.)</span>
+    <input class="answer-line" type="text" placeholder="Descreva aqui...">
+  </div>
+
+  <div class="question">
+    <span class="question-num">12</span>
+    <span class="question-text"><strong>Frutos do mar:</strong></span>
+    <ul class="options">
+      <li>Amo</li>
+      <li>Gosto</li>
+      <li>Tanto faz</li>
+      <li>Nao gosto</li>
+      <li>Alergia</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">13</span>
+    <span class="question-text"><strong>Vinho chileno:</strong></span>
+    <ul class="options">
+      <li>Quero degustacao em vinicola</li>
+      <li>So no jantar</li>
+      <li>Nao bebo</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Conforto & Preocupacoes</span>
+
+  <div class="question">
+    <span class="question-num">14</span>
+    <span class="question-text"><strong>O que NAO pode faltar no hotel?</strong> (marque todos que aplicam)</span>
+    <ul class="options">
+      <li>Piscina aquecida</li>
+      <li>Spa</li>
+      <li>Banheira no quarto</li>
+      <li>Cafe da manha incluso</li>
+      <li>Boa localizacao</li>
+      <li>Estacionamento</li>
+      <li>Room service</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">15</span>
+    <span class="question-text"><strong>Maior preocupacao com viagem de inverno:</strong></span>
+    <ul class="options">
+      <li>Frio</li>
+      <li>Estradas</li>
+      <li>Saude do Artur</li>
+      <li>Nenhuma</li>
+      <li>Outra: _________________________</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">16</span>
+    <span class="question-text"><strong>Algo que voce sempre quis fazer no Chile e nunca fez?</strong></span>
+    <input class="answer-line" type="text" placeholder="Resposta livre...">
+  </div>
+</div>
+
+<!-- ARTUR -->
+<div class="page-break"></div>
+<div class="questionnaire">
+  <h3>Questionario &mdash; Artur (10 anos)</h3>
+  <p style="color: var(--text-light); font-style: italic; margin-bottom: 24px;">Pai ou mae podem ajudar a responder!</p>
+
+  <span class="section-label">O que voce curte?</span>
+
+  <div class="question">
+    <span class="question-num">1</span>
+    <span class="question-text"><strong>O que voce MAIS quer fazer nessa viagem?</strong></span>
+    <ul class="options">
+      <li>Brincar na neve</li>
+      <li>Ir a um museu legal de ciencias</li>
+      <li>Comer coisas diferentes</li>
+      <li>Ver estrelas num telescopio gigante</li>
+      <li>Tudo isso!</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">2</span>
+    <span class="question-text"><strong>Piscina aquecida no hotel:</strong></span>
+    <ul class="options">
+      <li>Nem ligo</li>
+      <li>Legal</li>
+      <li>Preciso!</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">3</span>
+    <span class="question-text"><strong>Voce gosta de cozinhar?</strong></span>
+    <ul class="options">
+      <li>Sim, adoro!</li>
+      <li>Mais ou menos</li>
+      <li>Nao curto</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">4</span>
+    <span class="question-text"><strong>Ver arte de rua colorida e andar de funicular (tipo bondinho no morro):</strong></span>
+    <ul class="options">
+      <li>Legal!</li>
+      <li>Tanto faz</li>
+      <li>Chato</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">5</span>
+    <span class="question-text"><strong>Museu interativo de ciencias (experiencias de fisica, robos, espaco):</strong></span>
+    <ul class="options">
+      <li>Quero muito!</li>
+      <li>Pode ser</li>
+      <li>Passo</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Neve & Aventura</span>
+
+  <div class="question">
+    <span class="question-num">6</span>
+    <span class="question-text"><strong>Voce ja viu neve de verdade?</strong></span>
+    <ul class="options">
+      <li>Sim</li>
+      <li>Nao</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">7</span>
+    <span class="question-text"><strong>Esquiar ou brincar na neve &mdash; o que prefere?</strong></span>
+    <ul class="options">
+      <li>Quero aprender a esquiar</li>
+      <li>So quero brincar</li>
+      <li>Os dois!</li>
+      <li>Tenho medo</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">8</span>
+    <span class="question-text"><strong>Aventura na montanha (caminhada leve com cachoeira):</strong></span>
+    <ul class="options">
+      <li>Demais!</li>
+      <li>Ok</li>
+      <li>Prefiro ficar no hotel</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Comida</span>
+
+  <div class="question">
+    <span class="question-num">9</span>
+    <span class="question-text"><strong>Comida que voce NAO come de jeito nenhum:</strong></span>
+    <input class="answer-line" type="text" placeholder="Escreva aqui...">
+  </div>
+
+  <div class="question">
+    <span class="question-num">10</span>
+    <span class="question-text"><strong>Experimentar comida nova (que nunca comeu):</strong></span>
+    <ul class="options">
+      <li>Adoro experimentar!</li>
+      <li>So se parecer gostoso</li>
+      <li>Prefiro o que ja conheco</li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <span class="question-num">11</span>
+    <span class="question-text"><strong>Sorvete artesanal chileno &mdash; quantas vezes por dia?</strong></span>
+    <ul class="options">
+      <li>0</li>
+      <li>1</li>
+      <li>Todas que puder!</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Especial</span>
+
+  <div class="question">
+    <span class="question-num">12</span>
+    <span class="question-text"><strong>Se pudesse escolher UMA coisa para fazer em Santiago, qual seria?</strong></span>
+    <input class="answer-line" type="text" placeholder="Resposta livre...">
+  </div>
+
+  <div class="question">
+    <span class="question-num">13</span>
+    <span class="question-text"><strong>Tem algum medo ou preocupacao com a viagem?</strong> (frio, aviao, comida, ficar longe de casa...)</span>
+    <input class="answer-line" type="text" placeholder="Resposta livre...">
+  </div>
+</div>
+
+<!-- PROXIMO PASSO -->
+<h2>8. Proximo Passo</h2>
+
+<div class="tip">
+  <div class="tip-title">Apos as respostas, Beth entrega:</div>
+  <ul>
+    <li><strong>Roteiro dia-a-dia</strong> hiperpersonalizado com horarios</li>
+    <li><strong>Reservas</strong> com links e prazos criticos</li>
+    <li><strong>Plano B</strong> para dias de chuva ou frio extremo</li>
+    <li><strong>Orcamento detalhado</strong> por dia e por categoria</li>
+    <li><strong>Checklist de malas</strong> para inverno chileno com crianca</li>
+    <li><strong>Mapa interativo</strong> com todos os pontos marcados</li>
+  </ul>
+</div>
+
+<div class="doc-footer">
+  <p>Preparado por <strong>Beth</strong> &mdash; Secretaria Executiva Digital &amp; PhD Travel Planning</p>
+  <p>KM Tech &bull; Dossie gerado em 27 de marco de 2026</p>
+  <p style="margin-top: 8px; color: #a0aec0;">Os questionarios podem ser impressos e preenchidos a mao, ou respondidos digitalmente.</p>
+</div>
+
+</div><!-- /content -->
+
+</body>
+</html>
