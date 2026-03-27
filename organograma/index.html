@@ -600,10 +600,175 @@
     body { background: white; color: #1a1a1a; }
     .card, .nucleus, .member, .flow, .veto-card, .frontier-item { border-color: #ddd; }
     .nucleus::before { height: 4px; }
+    .modal-overlay { display: none !important; }
+  }
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 32px;
+    position: relative;
+    transform: translateY(20px) scale(.97);
+    transition: transform .25s ease;
+  }
+  .modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+  }
+  .modal-close:hover {
+    background: var(--border);
+    color: var(--text);
+  }
+  .modal-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .modal-name {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .modal-role {
+    font-size: 13px;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .modal-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .modal-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .modal-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(59,130,246,.1);
+    color: var(--accent-blue);
+  }
+  .modal-tag.veto {
+    background: rgba(239,68,68,.1);
+    color: var(--accent-red);
+  }
+  .modal-tag.nucleus {
+    background: rgba(16,185,129,.1);
+    color: var(--accent-green);
+  }
+  .modal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .modal-meta-item {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .modal-meta-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--text-muted);
+  }
+  .modal-meta-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 2px;
+  }
+
+  /* Clickable members */
+  .member[data-agent], .card[data-agent] {
+    cursor: pointer;
+  }
+  .member[data-agent]:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px var(--glow-blue);
+  }
+
+  @media (max-width: 600px) {
+    .modal { padding: 20px 16px; max-height: 90vh; border-radius: 12px; }
+    .modal-overlay { padding: 12px; }
+    .modal-name { font-size: 18px; }
+    .modal-desc { font-size: 13px; }
+    .modal-meta { grid-template-columns: 1fr; }
+    .modal-avatar { width: 44px; height: 44px; font-size: 18px; border-radius: 10px; }
   }
 </style>
 </head>
 <body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
 
 <div class="container">
 
@@ -1316,6 +1481,297 @@
   </div>
 
 </div>
+
+<script>
+// ========== AGENT DATABASE ==========
+const agents = {
+  "Kleber Miguel": {
+    avatar: "KM", color: "av-gold",
+    role: "Owner / Fundador / CPO — Decisao Final Absoluta",
+    nucleus: "Comando", version: "—",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 24 agentes IA e 2 humanos.",
+    skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
+    meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
+  },
+  "CEO KM": {
+    avatar: "CK", color: "av-purple",
+    role: "Alter Ego Executivo Digital",
+    nucleus: "Estrategia", version: "—",
+    desc: "Parceiro estrategico digital de Kleber Miguel. Analisa cenarios (otimista vs pessimista), debate decisoes de investimento, portfolio e M&A. Profundo conhecimento do mercado de saude privada no Brasil. Recomenda decisoes com nivel de confianca.",
+    skills: ["Debate Estrategico", "Cenarios", "Portfolio", "M&A", "Investimento"],
+    meta: { tipo: "Agente IA", nucleo: "Estrategia", veto: "Nao", status: "Ativo" }
+  },
+  "KM — CPO": {
+    avatar: "CP", color: "av-blue",
+    role: "Orquestrador do Time — Produto & Sprints",
+    nucleus: "Orquestracao", version: "—",
+    desc: "Gerente geral do ecossistema. PM senior + Scrum Master com 20 anos em sistemas de saude. Ponto unico de contato do time — gerencia Eduardo, Reinaldo, Junior, Vinicius, Harry e Gustavo. Define roadmap, sprints e trade-offs.",
+    skills: ["Product Management", "Scrum", "Roadmap", "Trade-offs", "Coordenacao"],
+    meta: { tipo: "Agente IA", nucleo: "Orquestracao", veto: "Arbitro final", status: "Ativo" }
+  },
+  "Beth": {
+    avatar: "Be", color: "av-pink",
+    role: "Secretaria Executiva + Assistente Pessoal + PhD Produtividade",
+    nucleus: "Comando", version: "v1.0",
+    desc: "15 anos como assistente executiva de C-levels em healthtech. Gerencia agenda, tarefas Jira, notas Obsidian, briefings diarios, follow-ups de decisoes pendentes e metricas operacionais. Tambem atua como assistente pessoal (familia, viagens, estudos) com PhD em Produtividade e Travel Planning.",
+    skills: ["Agenda", "Follow-ups", "Briefings", "Obsidian", "Jira", "GTD", "Travel Planning"],
+    meta: { tipo: "Agente IA", nucleo: "Comando", veto: "Nao", status: "Ativo" }
+  },
+  "Eduardo": {
+    avatar: "Ed", color: "av-blue",
+    role: "VDF Archaeologist + DBA + Consultor Legado (cap 15%)",
+    nucleus: "N1 — Migracao VDF", version: "v2.0",
+    desc: "Especialista senior com 20 anos em VDF + SQL Server. Analisa codigo legado, Data Dictionaries (.DD), Crystal Reports (.rpt), Stored Procedures e regras de negocio de clinicas, policlinicas, fisioterapia, estetica e laboratorios AP. Primeiro agente a avaliar qualquer migracao — sem a analise dele, ninguem comeca.",
+    skills: ["VDF 16.1", "SQL Server", "Crystal Reports", "Data Dictionary", "Regras de Negocio"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
+  },
+  "Reinaldo": {
+    avatar: "Re", color: "av-cyan",
+    role: "VDF Architect — .NET 10, Clean Architecture, DDD",
+    nucleus: "N1 — Migracao VDF", version: "—",
+    desc: "Transforma a analise do Eduardo em arquitetura .NET 10 limpa seguindo DDD e Clean Architecture. Desenha estrutura de pastas, interfaces, contratos de servico e entidades EF Core. Produz apenas o esqueleto e decisoes arquiteturais — nunca gera codigo de implementacao.",
+    skills: [".NET 10", "Clean Architecture", "DDD", "EF Core", "CQRS"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
+  },
+  "Junior": {
+    avatar: "Jr", color: "av-blue",
+    role: "VDF Migrator — Gera C# em 2 passes",
+    nucleus: "N1 — Migracao VDF", version: "—",
+    desc: "Converte Visual DataFlex 16.1 para C# 14 em dois passes. Pass 1 gera o esqueleto com marcacoes VDF-TODO, Pass 2 resolve cada TODO em sessao interativa. Roda dotnet build em loop ate compilar sem erros. So ativa apos ter analise do Eduardo E design do Reinaldo.",
+    skills: ["C# 14", "VDF-to-C#", "dotnet build", "2-Pass Migration"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
+  },
+  "Vinicius": {
+    avatar: "Vi", color: "av-teal",
+    role: "VDF Parity QA — Gate 100% obrigatorio",
+    nucleus: "N1 — Migracao VDF", version: "—",
+    desc: "Valida que o codigo C# migrado pelo Junior produz os mesmos resultados que o VDF original. Cria fixtures com dados reais anonimizados do SQL Server, gera suite xUnit e executa a gate de paridade. NENHUM modulo vai para producao sem 100% de aprovacao do Vinicius.",
+    skills: ["xUnit", "Fixtures Reais", "Gate Paridade", "SQL Server", "Testes Automatizados"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Sim — Paridade", status: "Ativo" }
+  },
+  "Cicero": {
+    avatar: "Ci", color: "av-slate",
+    role: "Dev Senior eSocial SST — .NET 10, Temporal, SOAP/XML",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
+    desc: "Desenvolve o webservice de mensageria eSocial SST (S-1060, S-2210, S-2220, S-2240). Implementa .NET 10, Temporal workflows, SOAP/XML com certificado digital e-CNPJ, integracao com VDF Medicina do Trabalho. Status: dev PARADO por decisao D3.",
+    skills: [".NET 10", "Temporal", "SOAP/XML", "Certificado Digital", "eSocial SST"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Parado (D3)" }
+  },
+  "Vinicius Reis": {
+    avatar: "VR", color: "av-gold",
+    role: "Socio — Dev principal VDF 16.1 (manutencao legado)",
+    nucleus: "N1 — Migracao VDF", version: "—",
+    desc: "Socio da 4Health e desenvolvedor principal do sistema VDF 16.1 legado. Responsavel pela manutencao diaria do ERP em producao. Consultado pelo Eduardo (com cap de 15%) para duvidas sobre regras de negocio historicas do sistema.",
+    skills: ["VDF 16.1", "SQL Server", "Regras de Negocio", "Manutencao ERP"],
+    meta: { tipo: "Humano", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
+  },
+  "Gustavo": {
+    avatar: "Gu", color: "av-green",
+    role: "Malu Automation — n8n, LangGraph, WhatsApp",
+    nucleus: "N2 — Malu", version: "v2.0",
+    desc: "Responsavel tecnico da Malu (recepcionista IA WhatsApp). Especialista senior em n8n + LangGraph + automacao para saude. Desenvolve fluxos n8n, skills de IA, migracoes para LangGraph, integracoes com WhatsApp, voz, ERP 4Health e APIs de saude. SEMPRE le os .md, skills e memoria do projeto antes de propor qualquer coisa.",
+    skills: ["n8n", "LangGraph", "WhatsApp", "Skills IA", "Automacao Saude"],
+    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Nao", status: "Ativo" }
+  },
+  "Juninho": {
+    avatar: "Jn", color: "av-teal",
+    role: "Malu QA + Parity Specialist — Bloqueia deploy",
+    nucleus: "N2 — Malu", version: "—",
+    desc: "Valida que a Malu em producao esta funcionando corretamente. Executa testes stress, E2E simulados, forense de producao e analise de KB gaps. NENHUM deploy da Malu vai para producao sem passar pelo Juninho. Ativado apos qualquer mudanca do Gustavo ou antes/apos deploys.",
+    skills: ["Stress Test", "E2E", "Forense", "KB Gaps", "Gate Deploy"],
+    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim — Deploy Malu", status: "Ativo" }
+  },
+  "Rafael": {
+    avatar: "Ra", color: "av-purple",
+    role: "PhD IA/LLM/RAG + MCP Architect + LangChain/LangGraph",
+    nucleus: "N2 — Malu", version: "v1.0",
+    desc: "PhD em IA do ecossistema. Decide modelos, otimiza LLMs, projeta arquitetura RAG, design de MCPs, eval pipelines, auditoria de prompts e diagnostico de falhas. Expert em LangChain v1.0+, LangGraph v0.2+, LangSmith. Nenhuma decisao de IA passa sem o Rafael.",
+    skills: ["LLM", "RAG", "LangChain", "LangGraph", "LangSmith", "Eval Pipeline", "MCP"],
+    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim — Decisoes IA", status: "Ativo" }
+  },
+  "Harry": {
+    avatar: "Ha", color: "av-red",
+    role: "Fiscal Guardian — Tolerancia zero",
+    nucleus: "N3 — Corporativo", version: "—",
+    desc: "Valida todas as regras tributarias brasileiras: NF-e, NFS-e, SPED, eSocial, ICMS, PIS, COFINS, IPI, ISS, TISS. Ativado SEMPRE que um modulo tenha logica fiscal ou financeira critica. Tolerancia zero — qualquer divergencia fiscal bloqueia o deploy.",
+    skills: ["NF-e", "SPED", "ICMS", "PIS/COFINS", "ISS", "TISS", "eSocial Fiscal"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — Fiscal", status: "Ativo" }
+  },
+  "Paulo Guedes": {
+    avatar: "PG", color: "av-orange",
+    role: "Especialista Financeiro/Bancario + Economista PhD",
+    nucleus: "N3 — Corporativo", version: "v1.0",
+    desc: "25 anos em mercado financeiro, 20 anos em sistemas bancarios (ate C-level), 10 anos em financas de clinicas de saude. Expert em PIX, boletos, CNAB 240/400, gateways (Efi, Stripe, Asaas, PagarMe), conciliacao bancaria, OFX, Open Finance, split de pagamento, cobranca recorrente.",
+    skills: ["PIX", "CNAB", "Gateways", "Conciliacao", "DRE", "Fluxo de Caixa"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
+  },
+  "Jorge Mendes": {
+    avatar: "JM", color: "av-teal",
+    role: "Contador Senior / Controller Empresarial",
+    nucleus: "N3 — Corporativo", version: "v1.0",
+    desc: "CRC ativo, 20 anos contabilidade, 15 anos controller, 10 anos contabilidade de saude. Escrituracao, balanco patrimonial, DRE contabil, ECD, ECF, LALUR, plano de contas, regime tributario (Simples/Presumido/Real), CPC/IFRS, reconhecimento de receita SaaS (CPC 47), fechamento mensal.",
+    skills: ["ECD/ECF", "CPC/IFRS", "SaaS CPC 47", "LALUR", "Regime Tributario"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
+  },
+  "Dr. KM": {
+    avatar: "DK", color: "av-purple",
+    role: "Advogado Full Service Premium — 16 dominios",
+    nucleus: "N3 — Corporativo", version: "v1.0",
+    desc: "Advogado multidisciplinar. Revisao/criacao de contratos, pareceres, analise de risco, due diligence, LGPD, direito medico, saude suplementar, tributario, societario, imobiliario, propriedade intelectual, software/tecnologia, consumidor, familia/patrimonio. Tolerancia zero para invencao de leis.",
+    skills: ["Contratos", "LGPD", "Direito Medico", "Societario", "PI", "Tributario"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
+  },
+  "Charl": {
+    avatar: "Ch", color: "av-orange",
+    role: "SST + eSocial + Medicina Ocupacional",
+    nucleus: "N3 — Corporativo", version: "v2.0",
+    desc: "PhD Engenharia de Seguranca, 25 anos consultor, 15 anos CTO de software SST. Expert em NRs (1,4,5,6,7,9,15,17,35), PCMSO, PGR, GRO, LTCAT, PPP, SESMT, ASO, CAT, riscos psicossociais. Precificacao B2B de servicos ocupacionais e analise competitiva de software SST.",
+    skills: ["NRs", "PCMSO", "PGR", "LTCAT", "PPP", "eSocial SST", "Pricing B2B"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
+  },
+  "Anderson Farah": {
+    avatar: "AF", color: "av-indigo",
+    role: "DPO + Compliance Officer Integrado",
+    nucleus: "N3 — Corporativo", version: "—",
+    desc: "CIPM (IAPP), CDPO/BR (ANPD), ISO 27001/27701 Lead Auditor. Orquestra compliance cross-dominio coordenando Harry (fiscal), Dr. KM (juridico/LGPD), Jorge Mendes (contabil), Charl (SST/eSocial) e Marco Antonio (regulatorio saude). Garante que nenhuma obrigacao caia entre dominios.",
+    skills: ["LGPD", "ROPA", "RIPD", "ANPD", "ISO 27001", "Compliance Cross-Dominio"],
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — LGPD", status: "Ativo" }
+  },
+  "Marco Antonio": {
+    avatar: "MA", color: "av-purple",
+    role: "Consultor Senior Saude + IA Strategist",
+    nucleus: "N4 — Estrategia", version: "v1.0",
+    desc: "PhD Gestao em Saude (FGV), 20 anos consultoria para redes de clinicas, 15 anos healthtech product/go-to-market. Mapeia 14 ERPs + 5 concorrentes Lab AP + 5 concorrentes Fisioterapia. Expert em Lab AP (coleta-a-laudo, ONA, CAP) e Fisioterapia (12 modalidades, CIF, TISS, COFFITO). CFM 2.454/2026.",
+    skills: ["14 ERPs Mapeados", "TAM/SAM/SOM", "Go-to-Market", "Lab AP", "Fisioterapia", "IA-First"],
+    meta: { tipo: "Agente IA", nucleo: "N4 Estrategia", veto: "Nao", status: "Ativo" }
+  },
+  "GjAlves": {
+    avatar: "Gj", color: "av-cyan",
+    role: "Infra + DevOps + Seguranca + Mobile Dev",
+    nucleus: "N5 — Infra", version: "—",
+    desc: "Responsavel tecnico pela infraestrutura de producao. Gerencia Linux, Windows Server, Docker, firewall, backup, monitoramento, CI/CD, compliance. Tambem expert em OS (Windows/Linux/macOS/Android), hardware e desenvolvimento mobile (Kotlin, Swift, Flutter, React Native, KMP, .NET MAUI). SEMPRE verifica o estado real da infra antes de propor mudancas.",
+    skills: ["VPS", "Docker", "Firewall", "CI/CD", "SSL", "Backup", "Mobile Dev"],
+    meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Sim — Seguranca", status: "Ativo" }
+  },
+  "Fabio": {
+    avatar: "Fb", color: "av-blue",
+    role: "Suporte Tecnico L1/L2 — Operadores de clinicas",
+    nucleus: "N5 — Infra", version: "v1.0",
+    desc: "12 anos em suporte ERP de saude. Atende operadores (recepcionistas, faturistas, medicos, administradores) com problemas no sistema, duvidas de uso, troubleshooting. Conhece o VDF 16.1 legado e o novo .NET 10 (dual-system durante Strangler Fig). Empatico, direto, escala com contexto completo.",
+    skills: ["Troubleshooting", "VDF 16.1", ".NET 10", "Atendimento Clinicas", "Escalamento"],
+    meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Nao", status: "Ativo" }
+  },
+  "Daniel": {
+    avatar: "Da", color: "av-lime",
+    role: "Data Engineer + BI Architect para Saude",
+    nucleus: "N6 — Dados", version: "v1.0",
+    desc: "12 anos em pipelines de dados de saude, certificado dbt, Apache Airflow, Power BI DA-100. Implementa data warehouses para 50+ unidades de clinicas. Transforma dados brutos do 4Health + Malu em dashboards acionaveis, metricas confiaveis e insights para decisao.",
+    skills: ["dbt", "Metabase", "ETL/ELT", "Data Warehouse", "KPIs Clinicas"],
+    meta: { tipo: "Agente IA", nucleo: "N6 Dados", veto: "Nao", status: "Ativo" }
+  },
+  "Amanda": {
+    avatar: "Am", color: "av-pink",
+    role: "Customer Success + Onboarding Specialist",
+    nucleus: "N7 — CX", version: "v1.0",
+    desc: "15 anos em implementacao de ERP de saude. Certificada Change Management (Prosci ADKAR), ITIL 4. Garante que cada clinica que entra no ecossistema tenha sucesso desde o dia 1. Gerencia onboarding como processo (nao evento), follow-up proativo, health score, NPS, prevencao de churn.",
+    skills: ["Onboarding", "Health Score", "NPS", "Churn Prevention", "Change Management"],
+    meta: { tipo: "Agente IA", nucleo: "N7 CX", veto: "Nao", status: "Ativo" }
+  },
+  "Lucas": {
+    avatar: "Lc", color: "av-indigo",
+    role: "UX/UI Designer Senior — Design System 4Health DS",
+    nucleus: "N7 — CX", version: "v1.0",
+    desc: "15 anos em design de UI para ERP de saude, certificado UX Research (NNg), WCAG 2.1 AA, Figma Design Systems. Garante que cada tela migrada seja MELHOR que o VDF original. Foco em eficiencia clinica (operador tem paciente esperando), equilibra bonito + rapido.",
+    skills: ["Design System", "WCAG 2.1 AA", "shadcn/ui", "Figma", "Fluxos Operador"],
+    meta: { tipo: "Agente IA", nucleo: "N7 CX", veto: "Nao", status: "Ativo" }
+  }
+};
+
+// ========== MODAL FUNCTIONS ==========
+function openModal(agentName) {
+  const a = agents[agentName];
+  if (!a) return;
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+  const vetoHtml = a.meta.veto && a.meta.veto !== 'Nao'
+    ? `<span class="modal-tag veto">&#9940; Poder de Veto: ${a.meta.veto}</span>` : '';
+  content.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-avatar ${a.color}">${a.avatar}</div>
+    <div class="modal-name">${agentName}</div>
+    <div class="modal-role">${a.role}</div>
+    <div class="modal-desc">${a.desc}</div>
+    <div class="modal-section-title">Skills & Competencias</div>
+    <div class="modal-tags">
+      ${a.skills.map(s => `<span class="modal-tag">${s}</span>`).join('')}
+      ${vetoHtml}
+    </div>
+    <div class="modal-section-title">Informacoes</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item">
+        <div class="modal-meta-label">Tipo</div>
+        <div class="modal-meta-value">${a.meta.tipo}</div>
+      </div>
+      <div class="modal-meta-item">
+        <div class="modal-meta-label">Nucleo</div>
+        <div class="modal-meta-value">${a.meta.nucleo}</div>
+      </div>
+      <div class="modal-meta-item">
+        <div class="modal-meta-label">Versao</div>
+        <div class="modal-meta-value">${a.version}</div>
+      </div>
+      <div class="modal-meta-item">
+        <div class="modal-meta-label">Status</div>
+        <div class="modal-meta-value">${a.meta.status}</div>
+      </div>
+    </div>
+  `;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ========== AUTO-BIND CLICK HANDLERS ==========
+document.addEventListener('DOMContentLoaded', () => {
+  // Bind .member elements by matching member-name text
+  document.querySelectorAll('.member').forEach(el => {
+    const nameEl = el.querySelector('.member-name');
+    if (nameEl) {
+      const name = nameEl.textContent.trim();
+      if (agents[name]) {
+        el.setAttribute('data-agent', name);
+        el.addEventListener('click', () => openModal(name));
+      }
+    }
+  });
+  // Bind hierarchy cards by matching card-name text
+  document.querySelectorAll('.card').forEach(el => {
+    const nameEl = el.querySelector('.card-name');
+    if (nameEl) {
+      const name = nameEl.textContent.trim();
+      // Map display names to agent keys
+      const nameMap = {
+        'Kleber Miguel': 'Kleber Miguel',
+        'CEO KM': 'CEO KM',
+        'KM \u2014 CPO': 'KM — CPO',
+        'Beth': 'Beth'
+      };
+      const key = nameMap[name] || name;
+      if (agents[key]) {
+        el.setAttribute('data-agent', key);
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => openModal(key));
+      }
+    }
+  });
+});
+</script>
 
 </body>
 </html>
