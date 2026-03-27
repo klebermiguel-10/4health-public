@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organograma — Ecossistema 4Health + Malu + KM Tech</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #2a3450;
+    --text: #e2e8f0;
+    --text-muted: #8892a8;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-pink: #ec4899;
+    --accent-teal: #14b8a6;
+    --accent-lime: #84cc16;
+    --accent-indigo: #6366f1;
+    --gold: #fbbf24;
+    --glow-blue: rgba(59, 130, 246, 0.15);
+    --glow-purple: rgba(139, 92, 246, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: auto;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-purple), transparent);
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .header .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent-cyan);
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 48px;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+
+  /* ===== HIERARCHY (TOP) ===== */
+  .hierarchy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .connector-v {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple));
+    opacity: 0.6;
+  }
+  .connector-v.short { height: 16px; }
+  .connector-v.long { height: 32px; }
+
+  .branch-split {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
+    position: relative;
+  }
+  .branch-split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 120px);
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    opacity: 0.4;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease;
+    min-width: 140px;
+  }
+  .card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 20px var(--glow-blue);
+    transform: translateY(-2px);
+  }
+
+  .card.human {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-color: var(--gold);
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.1);
+  }
+  .card.human .card-name { color: var(--gold); }
+
+  .card.executive {
+    background: linear-gradient(135deg, #1a1033, #0f172a);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 16px var(--glow-purple);
+  }
+
+  .card.secretary {
+    background: linear-gradient(135deg, #1a2033, #0f172a);
+    border-color: var(--accent-pink);
+  }
+
+  .card-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .badge-human { background: rgba(251, 191, 36, 0.15); color: var(--gold); }
+  .badge-strategy { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+  .badge-product { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+  .badge-secretary { background: rgba(236, 72, 153, 0.15); color: var(--accent-pink); }
+
+  .card-name {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .card-role {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== NUCLEUS GRID ===== */
+  .nucleus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .nucleus-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .nucleus {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .nucleus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+  .nucleus.n-vdf::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
+  .nucleus.n-malu::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-teal)); }
+  .nucleus.n-corp::before { background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); }
+  .nucleus.n-strat::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink)); }
+  .nucleus.n-infra::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); }
+  .nucleus.n-data::before { background: linear-gradient(90deg, var(--accent-lime), var(--accent-green)); }
+  .nucleus.n-cx::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple)); }
+
+  .nucleus-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .nucleus-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .n-vdf .nucleus-icon { background: rgba(59, 130, 246, 0.15); }
+  .n-malu .nucleus-icon { background: rgba(16, 185, 129, 0.15); }
+  .n-corp .nucleus-icon { background: rgba(245, 158, 11, 0.15); }
+  .n-strat .nucleus-icon { background: rgba(139, 92, 246, 0.15); }
+  .n-infra .nucleus-icon { background: rgba(6, 182, 212, 0.15); }
+  .n-data .nucleus-icon { background: rgba(132, 204, 22, 0.15); }
+  .n-cx .nucleus-icon { background: rgba(236, 72, 153, 0.15); }
+
+  .nucleus-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .nucleus-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .nucleus-members {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--surface2);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .member:hover {
+    border-color: var(--border);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .member-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: white;
+  }
+  .av-blue { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+  .av-cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .av-green { background: linear-gradient(135deg, #059669, #10b981); }
+  .av-purple { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+  .av-orange { background: linear-gradient(135deg, #d97706, #f59e0b); }
+  .av-red { background: linear-gradient(135deg, #dc2626, #ef4444); }
+  .av-pink { background: linear-gradient(135deg, #db2777, #ec4899); }
+  .av-teal { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+  .av-gold { background: linear-gradient(135deg, #b45309, #fbbf24); }
+  .av-slate { background: linear-gradient(135deg, #475569, #64748b); }
+  .av-lime { background: linear-gradient(135deg, #65a30d, #84cc16); }
+  .av-indigo { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+
+  .member-info { flex: 1; min-width: 0; }
+  .member-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .member-spec {
+    font-size: 10px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .member-tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .tag-active { background: rgba(16,185,129,0.15); color: var(--accent-green); }
+  .tag-paused { background: rgba(245,158,11,0.15); color: var(--accent-orange); }
+  .tag-human { background: rgba(251,191,36,0.15); color: var(--gold); }
+  .tag-veto { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+
+  /* ===== FLOW ARROWS ===== */
+  .flow {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-top: 16px;
+  }
+  .flow-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 12px;
+  }
+  .flow-step {
+    background: rgba(59,130,246,0.1);
+    color: var(--accent-blue);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .flow-arrow {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* ===== FRONTIER TABLE ===== */
+  .frontier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .frontier-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-radius: 8px;
+  }
+  .frontier-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .frontier-domain {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .frontier-owner {
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* ===== VETO SECTION ===== */
+  .veto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .veto-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 10px;
+    transition: all 0.15s ease;
+  }
+  .veto-card:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 0 12px rgba(239,68,68,0.1);
+  }
+  .veto-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(239,68,68,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .veto-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-red);
+  }
+  .veto-domain {
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  /* ===== SQUAD MKT ===== */
+  .squad-members-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .squad-members-grid .member {
+    padding: 8px 10px;
+  }
+  .squad-members-grid .member-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+  .squad-members-grid .member-name {
+    font-size: 12px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nucleus-grid, .nucleus-grid-3 { grid-template-columns: 1fr; }
+    .branch-split { flex-direction: column; align-items: center; gap: 16px; }
+    .branch-split::before { display: none; }
+    .header .stats { gap: 16px; }
+    .veto-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; color: #1a1a1a; }
+    .card, .nucleus, .member, .flow, .veto-card, .frontier-item { border-color: #ddd; }
+    .nucleus::before { height: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ====== HEADER ====== -->
+  <div class="header">
+    <h1>Ecossistema 4Health + Malu + KM Tech</h1>
+    <div class="subtitle">Organograma Operacional &mdash; v3.0 &mdash; 27 Marco 2026</div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">24</div>
+        <div class="stat-label">Agentes IA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7</div>
+        <div class="stat-label">Squad MKT</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Humanos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">7</div>
+        <div class="stat-label">Nucleos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">59</div>
+        <div class="stat-label">Skills</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== COMMAND HIERARCHY ====== -->
+  <div class="section">
+    <div class="section-title">Hierarquia de Comando</div>
+    <div class="hierarchy">
+      <div class="card human" style="min-width: 240px;">
+        <span class="card-badge badge-human">Humano &bull; Fundador</span>
+        <div class="card-name" style="font-size: 20px;">Kleber Miguel</div>
+        <div class="card-role">KM &mdash; Humano<br>Owner / CPO / Decisao Final Absoluta</div>
+      </div>
+      <div class="connector-v long"></div>
+      <div class="branch-split">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="card executive">
+            <span class="card-badge badge-strategy">Estrategia</span>
+            <div class="card-name">CEO KM</div>
+            <div class="card-role">Alter Ego Executivo Digital<br>Debate, cenarios, portfolio, M&A</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="card executive">
+            <span class="card-badge badge-product">Produto</span>
+            <div class="card-name">KM &mdash; CPO</div>
+            <div class="card-role">Orquestrador do Time<br>Roadmap, sprints, trade-offs, prioridade</div>
+          </div>
+        </div>
+      </div>
+      <div class="connector-v"></div>
+      <div class="card secretary">
+        <span class="card-badge badge-secretary">Secretaria Executiva</span>
+        <div class="card-name">Beth</div>
+        <div class="card-role">Agenda, follow-ups, briefings,<br>metricas cross-agente, Obsidian, Jira</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 7 NUCLEOS ====== -->
+  <div class="section">
+    <div class="section-title">7 Nucleos Operacionais</div>
+    <div class="nucleus-grid">
+
+      <!-- NUCLEO 1: VDF -->
+      <div class="nucleus n-vdf">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#9881;</div>
+          <div>
+            <div class="nucleus-name">N1 &mdash; Migracao VDF &rarr; .NET 10</div>
+            <div class="nucleus-desc">6 agentes + 1 humano</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-blue">Ed</div>
+            <div class="member-info">
+              <div class="member-name">Eduardo</div>
+              <div class="member-spec">Archaeologist VDF + DBA + Consultor Legado (15%)</div>
+            </div>
+            <span class="member-tag tag-active">v2.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-cyan">Re</div>
+            <div class="member-info">
+              <div class="member-name">Reinaldo</div>
+              <div class="member-spec">Architect .NET 10 &mdash; Clean Arch, DDD, EF Core</div>
+            </div>
+            <span class="member-tag tag-active">ativo</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-blue">Jr</div>
+            <div class="member-info">
+              <div class="member-name">Junior</div>
+              <div class="member-spec">VDF Migrator &mdash; Gera C#, 2 passes, dotnet build</div>
+            </div>
+            <span class="member-tag tag-active">ativo</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-teal">Vi</div>
+            <div class="member-info">
+              <div class="member-name">Vinicius</div>
+              <div class="member-spec">VDF Parity QA &mdash; Fixtures reais, xUnit, gate 100%</div>
+            </div>
+            <span class="member-tag tag-veto">veto</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-slate">Ci</div>
+            <div class="member-info">
+              <div class="member-name">Cicero</div>
+              <div class="member-spec">Dev eSocial SST &mdash; .NET 10, Temporal, SOAP/XML</div>
+            </div>
+            <span class="member-tag tag-paused">D3 parado</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-gold">VR</div>
+            <div class="member-info">
+              <div class="member-name">Vinicius Reis</div>
+              <div class="member-spec">Socio &mdash; Dev principal VDF 16.1 (manutencao legado)</div>
+            </div>
+            <span class="member-tag tag-human">humano</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Migracao</div>
+          <div class="flow-steps">
+            <span class="flow-step">Eduardo</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Reinaldo</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Junior</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Vinicius QA</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Harry</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 2: MALU -->
+      <div class="nucleus n-malu">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#129302;</div>
+          <div>
+            <div class="nucleus-name">N2 &mdash; Malu (IA Conversacional)</div>
+            <div class="nucleus-desc">3 agentes</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-green">Gu</div>
+            <div class="member-info">
+              <div class="member-name">Gustavo</div>
+              <div class="member-spec">n8n, skills IA, WhatsApp, LangGraph, integracoes</div>
+            </div>
+            <span class="member-tag tag-active">v2.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-teal">Jn</div>
+            <div class="member-info">
+              <div class="member-name">Juninho</div>
+              <div class="member-spec">Malu QA &mdash; Stress, E2E, forense producao, KB gaps</div>
+            </div>
+            <span class="member-tag tag-veto">veto</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-purple">Ra</div>
+            <div class="member-info">
+              <div class="member-name">Rafael</div>
+              <div class="member-spec">IA/LLM/RAG + MCP Architect &mdash; Eval, guardrails</div>
+            </div>
+            <span class="member-tag tag-veto">veto IA</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Deploy (ninguem pula Juninho)</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Rafael decide</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Gustavo implementa</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Juninho valida</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Deploy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 3: CORPORATIVO -->
+      <div class="nucleus n-corp">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#9878;</div>
+          <div>
+            <div class="nucleus-name">N3 &mdash; Compliance + Financeiro + Contabil</div>
+            <div class="nucleus-desc">6 agentes &mdash; zero overlap</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-red">Ha</div>
+            <div class="member-info">
+              <div class="member-name">Harry</div>
+              <div class="member-spec">Fiscal Guardian &mdash; NF-e, SPED, ICMS, PIS/COFINS, ISS, TISS</div>
+            </div>
+            <span class="member-tag tag-veto">veto fiscal</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-orange">PG</div>
+            <div class="member-info">
+              <div class="member-name">Paulo Guedes</div>
+              <div class="member-spec">Financeiro &mdash; PIX, CNAB, gateways, DRE, fluxo de caixa</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-teal">JM</div>
+            <div class="member-info">
+              <div class="member-name">Jorge Mendes</div>
+              <div class="member-spec">Contador &mdash; ECD/ECF, CPC/IFRS, SaaS (CPC 47), LALUR</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-purple">DK</div>
+            <div class="member-info">
+              <div class="member-name">Dr. KM</div>
+              <div class="member-spec">Advogado Full Service &mdash; 16 dominios, LGPD, direito medico</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-orange">Ch</div>
+            <div class="member-info">
+              <div class="member-name">Charl</div>
+              <div class="member-spec">SST + eSocial &mdash; NRs, PCMSO, PGR, LTCAT, PPP</div>
+            </div>
+            <span class="member-tag tag-active">v2.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-indigo">AF</div>
+            <div class="member-info">
+              <div class="member-name">Anderson Farah</div>
+              <div class="member-spec">DPO + Compliance Officer &mdash; LGPD, ROPA, RIPD</div>
+            </div>
+            <span class="member-tag tag-veto">veto LGPD</span>
+          </div>
+        </div>
+        <div class="frontier-grid">
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--accent-red)"></div>
+            <div class="frontier-domain">Fiscal/Tributario</div>
+            <div class="frontier-owner" style="color:var(--accent-red)">Harry</div>
+          </div>
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--accent-orange)"></div>
+            <div class="frontier-domain">Financeiro/Bancario</div>
+            <div class="frontier-owner" style="color:var(--accent-orange)">Paulo Guedes</div>
+          </div>
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--accent-teal)"></div>
+            <div class="frontier-domain">Contabil/Controller</div>
+            <div class="frontier-owner" style="color:var(--accent-teal)">Jorge Mendes</div>
+          </div>
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--accent-purple)"></div>
+            <div class="frontier-domain">Juridico/LGPD</div>
+            <div class="frontier-owner" style="color:var(--accent-purple)">Dr. KM</div>
+          </div>
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--gold)"></div>
+            <div class="frontier-domain">SST/eSocial/NRs</div>
+            <div class="frontier-owner" style="color:var(--gold)">Charl</div>
+          </div>
+          <div class="frontier-item">
+            <div class="frontier-dot" style="background:var(--accent-indigo)"></div>
+            <div class="frontier-domain">DPO/ANPD/Dados Pessoais</div>
+            <div class="frontier-owner" style="color:var(--accent-indigo)">Anderson Farah</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 4: ESTRATEGIA -->
+      <div class="nucleus n-strat">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#127919;</div>
+          <div>
+            <div class="nucleus-name">N4 &mdash; Estrategia, Mercado & Conteudo</div>
+            <div class="nucleus-desc">1 agente + Squad MKT (7)</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-purple">MA</div>
+            <div class="member-info">
+              <div class="member-name">Marco Antonio</div>
+              <div class="member-spec">Consultor Saude + IA Strategist &mdash; 14 ERPs mapeados</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <div class="flow-label">Squad Comercial-MKT &mdash; Pipeline 14 Steps</div>
+          <div class="nucleus-members" style="margin-top:8px;">
+            <div class="member">
+              <div class="member-avatar av-cyan" style="font-size:11px;">Pe</div>
+              <div class="member-info">
+                <div class="member-name">Pedro Pesquisa</div>
+                <div class="member-spec">Research de mercado, tendencias saude</div>
+              </div>
+              <span class="member-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-cyan);">step 02</span>
+            </div>
+            <div class="squad-members-grid">
+              <div class="member">
+                <div class="member-avatar av-red">Yu</div>
+                <div class="member-info">
+                  <div class="member-name">Yuri YouTube</div>
+                </div>
+              </div>
+              <div class="member">
+                <div class="member-avatar av-pink">Ia</div>
+                <div class="member-info">
+                  <div class="member-name">Iago Instagram</div>
+                </div>
+              </div>
+              <div class="member">
+                <div class="member-avatar av-blue">Lu</div>
+                <div class="member-info">
+                  <div class="member-name">Luna LinkedIn</div>
+                </div>
+              </div>
+              <div class="member">
+                <div class="member-avatar av-green">Be</div>
+                <div class="member-info">
+                  <div class="member-name">Bernardo Blog</div>
+                </div>
+              </div>
+              <div class="member" style="grid-column:span 2;">
+                <div class="member-avatar av-teal">Wa</div>
+                <div class="member-info">
+                  <div class="member-name">Walter WhatsApp + Email</div>
+                </div>
+              </div>
+            </div>
+            <div class="member">
+              <div class="member-avatar av-pink" style="font-size:11px;">Rn</div>
+              <div class="member-info">
+                <div class="member-name">Renata Revisao</div>
+                <div class="member-spec">QA editorial, consistencia, tom de voz</div>
+              </div>
+              <span class="member-tag" style="background:rgba(236,72,153,0.15);color:var(--accent-pink);">step 13</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 5: INFRA -->
+      <div class="nucleus n-infra">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#9889;</div>
+          <div>
+            <div class="nucleus-name">N5 &mdash; Infraestrutura & Suporte</div>
+            <div class="nucleus-desc">2 agentes</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-cyan">Gj</div>
+            <div class="member-info">
+              <div class="member-name">GjAlves</div>
+              <div class="member-spec">Infra + DevOps + Seguranca &mdash; VPS, Docker, CI/CD, mobile</div>
+            </div>
+            <span class="member-tag tag-veto">veto infra</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-blue">Fb</div>
+            <div class="member-info">
+              <div class="member-name">Fabio</div>
+              <div class="member-spec">Suporte L1/L2 &mdash; Operadores de clinicas, escalamento</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Suporte</div>
+          <div class="flow-steps">
+            <span class="flow-step">Operador clinica</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Fabio L1</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">GjAlves / Vinicius Reis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 6: DADOS & BI -->
+      <div class="nucleus n-data">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#128202;</div>
+          <div>
+            <div class="nucleus-name">N6 &mdash; Dados, BI & Observabilidade</div>
+            <div class="nucleus-desc">1 agente</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-lime">Da</div>
+            <div class="member-info">
+              <div class="member-name">Daniel</div>
+              <div class="member-spec">Data Engineer + BI &mdash; dbt, Metabase, ETL, KPIs clinicas</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fontes &rarr; Dashboards</div>
+          <div class="flow-steps">
+            <span class="flow-step">Eduardo (SQL)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(132,204,22,0.1);color:var(--accent-lime);">Daniel ETL</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Metabase</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda (CS)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 7: CUSTOMER SUCCESS & UX -->
+      <div class="nucleus n-cx">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#128150;</div>
+          <div>
+            <div class="nucleus-name">N7 &mdash; Customer Success & UX</div>
+            <div class="nucleus-desc">2 agentes</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-pink">Am</div>
+            <div class="member-info">
+              <div class="member-name">Amanda</div>
+              <div class="member-spec">Customer Success &mdash; Onboarding, Health Score, NPS, churn</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-indigo">Lc</div>
+            <div class="member-info">
+              <div class="member-name">Lucas</div>
+              <div class="member-spec">UX/UI Designer &mdash; Design System 4Health DS, WCAG 2.1 AA</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Onboarding</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda planeja</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas UX</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Gustavo (Malu)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Fabio treina</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== PODER DE VETO ====== -->
+  <div class="section">
+    <div class="section-title">Agentes com Poder de Veto &mdash; Bloqueiam Deploy</div>
+    <div class="veto-grid">
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">Harry</div>
+          <div class="veto-domain">Fiscal &mdash; ICMS, PIS, COFINS, ISS, IRRF, TISS</div>
+        </div>
+      </div>
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">Vinicius</div>
+          <div class="veto-domain">Paridade VDF &mdash; Gate 100% obrigatorio</div>
+        </div>
+      </div>
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">Juninho</div>
+          <div class="veto-domain">Malu QA &mdash; Nenhum deploy sem aprovacao</div>
+        </div>
+      </div>
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">Rafael</div>
+          <div class="veto-domain">IA &mdash; Qualidade e seguranca Malu</div>
+        </div>
+      </div>
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">GjAlves</div>
+          <div class="veto-domain">Seguranca &mdash; Infra e vulnerabilidades</div>
+        </div>
+      </div>
+      <div class="veto-card">
+        <div class="veto-icon">&#9940;</div>
+        <div>
+          <div class="veto-name">Anderson Farah</div>
+          <div class="veto-domain">LGPD &mdash; Dados pessoais e compliance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CROSS-COORDINATION ====== -->
+  <div class="section">
+    <div class="section-title">Fluxos Criticos Cross-Nucleo</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="flow">
+        <div class="flow-label">eSocial SST (quando ativado &mdash; D3 parado)</div>
+        <div class="flow-steps">
+          <span class="flow-step">Eduardo</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(245,158,11,0.1);color:var(--accent-orange);">Charl valida SST</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">Reinaldo</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">Cicero</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Harry aprova</span>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flow-label">Compliance SST Cruzado (5 agentes)</div>
+        <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(245,158,11,0.1);color:var(--accent-orange);">Charl identifica</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Harry ISS/NFS-e</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(245,158,11,0.1);color:var(--accent-orange);">Paulo Guedes</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">Jorge Mendes</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Dr. KM civil</span>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flow-label">Feature Malu com IA</div>
+        <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Rafael decide IA</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Gustavo implementa</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">Juninho valida</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">GjAlves deploy</span>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flow-label">Go-to-Market Conteudo</div>
+        <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">CEO KM + Marco Antonio</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">Pedro Pesquisa</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">5 criadores (paralelo)</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Renata QA</span>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flow-label">Nova Clinica (Onboarding)</div>
+        <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda planeja</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas UX</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Gustavo config Malu</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">Fabio treina</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(132,204,22,0.1);color:var(--accent-lime);">Daniel dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== MAPA CONSOLIDADO ====== -->
+  <div class="section">
+    <div class="section-title">Mapa Consolidado &mdash; 33 Agentes</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(160px,1fr));gap:8px;">
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--gold);text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);">Kleber Miguel</div>
+        <div style="font-size:9px;color:var(--text-muted);">Humano / Owner</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--gold);text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:var(--gold);">Vinicius Reis</div>
+        <div style="font-size:9px;color:var(--text-muted);">Humano / Dev VDF</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">CEO KM</div>
+        <div style="font-size:9px;color:var(--text-muted);">Estrategia</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">KM &mdash; CPO</div>
+        <div style="font-size:9px;color:var(--text-muted);">Produto</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-pink);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Beth</div>
+        <div style="font-size:9px;color:var(--text-muted);">Secretaria</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Eduardo</div>
+        <div style="font-size:9px;color:var(--text-muted);">N1 VDF Archaeo</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Reinaldo</div>
+        <div style="font-size:9px;color:var(--text-muted);">N1 Architect</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Junior</div>
+        <div style="font-size:9px;color:var(--text-muted);">N1 Migrator</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Vinicius</div>
+        <div style="font-size:9px;color:var(--text-muted);">N1 Parity QA</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-slate);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Cicero</div>
+        <div style="font-size:9px;color:var(--text-muted);">N1 eSocial (D3)</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-green);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Gustavo</div>
+        <div style="font-size:9px;color:var(--text-muted);">N2 Malu</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Juninho</div>
+        <div style="font-size:9px;color:var(--text-muted);">N2 Malu QA</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Rafael</div>
+        <div style="font-size:9px;color:var(--text-muted);">N2 IA/LLM/RAG</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Harry</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 Fiscal</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-orange);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Paulo Guedes</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 Financeiro</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-teal);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Jorge Mendes</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 Contabil</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Dr. KM</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 Juridico</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-orange);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Charl</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 SST</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Anderson Farah</div>
+        <div style="font-size:9px;color:var(--text-muted);">N3 DPO</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Marco Antonio</div>
+        <div style="font-size:9px;color:var(--text-muted);">N4 Consultor</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">GjAlves</div>
+        <div style="font-size:9px;color:var(--text-muted);">N5 Infra</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Fabio</div>
+        <div style="font-size:9px;color:var(--text-muted);">N5 Suporte</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-lime);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Daniel</div>
+        <div style="font-size:9px;color:var(--text-muted);">N6 Data/BI</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-pink);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Amanda</div>
+        <div style="font-size:9px;color:var(--text-muted);">N7 CS</div>
+      </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-indigo);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Lucas</div>
+        <div style="font-size:9px;color:var(--text-muted);">N7 UX/UI</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--gold);"></div> Humano
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-red);"></div> Poder de Veto
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-blue);"></div> N1 VDF
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-green);"></div> N2 Malu
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-orange);"></div> N3 Corporativo
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-purple);"></div> N4 Estrategia
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-cyan);"></div> N5 Infra
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-lime);"></div> N6 Dados
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-pink);"></div> N7 CX/UX
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <div class="footer">
+    <p><strong>Organograma v3.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 27 Marco 2026</p>
+    <p style="margin-top:4px;">24 agentes individuais &bull; 7 squad MKT &bull; 2 humanos &bull; 59 skills &bull; 7 nucleos &bull; 6 agentes com poder de veto</p>
+    <p style="margin-top:8px;font-size:10px;opacity:0.5;">Gerado por Claude Opus 4.6 para KM &mdash; Humano</p>
+  </div>
+
+</div>
+
+</body>
+</html>

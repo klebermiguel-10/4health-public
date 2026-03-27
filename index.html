@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4Health + Malu + KM Tech — Portal Publico</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --border: #2a3450;
+    --text: #e2e8f0;
+    --text-muted: #8892a8;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-cyan: #06b6d4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Inter',-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .container {
+    max-width:720px;
+    width:100%;
+    padding:48px 24px;
+    text-align:center;
+  }
+  h1 {
+    font-size:32px;
+    font-weight:800;
+    background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:8px;
+  }
+  .subtitle {
+    font-size:14px;
+    color:var(--text-muted);
+    margin-bottom:48px;
+  }
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;
+    text-align:left;
+  }
+  .card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:24px;
+    text-decoration:none;
+    color:var(--text);
+    transition:all .2s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before {
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));
+    opacity:0;
+    transition:opacity .2s;
+  }
+  .card:hover {
+    border-color:var(--accent-blue);
+    box-shadow:0 0 24px rgba(59,130,246,.12);
+    transform:translateY(-3px);
+  }
+  .card:hover::before { opacity:1; }
+  .card-icon {
+    font-size:28px;
+    margin-bottom:12px;
+    display:block;
+  }
+  .card-title {
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .card-desc {
+    font-size:12px;
+    color:var(--text-muted);
+    line-height:1.5;
+  }
+  .card-tag {
+    display:inline-block;
+    margin-top:12px;
+    font-size:10px;
+    font-weight:600;
+    padding:3px 8px;
+    border-radius:4px;
+    background:rgba(16,185,129,.12);
+    color:#10b981;
+  }
+  .footer {
+    margin-top:48px;
+    font-size:11px;
+    color:var(--text-muted);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>4Health + Malu + KM Tech</h1>
+  <div class="subtitle">Portal Publico &mdash; Artefatos e Apresentacoes</div>
+
+  <div class="grid">
+    <a class="card" href="organograma/">
+      <span class="card-icon">&#127969;</span>
+      <div class="card-title">Organograma v3.0</div>
+      <div class="card-desc">24 agentes IA + 7 squad MKT + 2 humanos. 7 nucleos operacionais, poder de veto e fluxos cross-nucleo.</div>
+      <span class="card-tag">online</span>
+    </a>
+
+    <div class="card" style="opacity:.4;cursor:default;">
+      <span class="card-icon">&#128640;</span>
+      <div class="card-title">Apresentacao Malu</div>
+      <div class="card-desc">Pitch deck da Malu — recepcionista IA para clinicas. 3 tiers, pricing, demo.</div>
+      <span class="card-tag" style="background:rgba(245,158,11,.12);color:#f59e0b;">em breve</span>
+    </div>
+
+    <div class="card" style="opacity:.4;cursor:default;">
+      <span class="card-icon">&#128176;</span>
+      <div class="card-title">Pricing</div>
+      <div class="card-desc">Tabela de precos 4Health ERP + Malu IA. Essencial, Pro e Premium.</div>
+      <span class="card-tag" style="background:rgba(245,158,11,.12);color:#f59e0b;">em breve</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 KM Tech &mdash; 4Health Sistemas &bull; Todos os direitos reservados</p>
+  </div>
+</div>
+</body>
+</html>
