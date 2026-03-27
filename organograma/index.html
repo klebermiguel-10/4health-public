@@ -1518,15 +1518,15 @@ const agents = {
   "Kleber Miguel": {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
-    nucleus: "Comando", version: "—",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 24 agentes IA e 2 humanos.",
+    nucleus: "Comando", version: "v1.0",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 25 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
   "CEO KM": {
     avatar: "CK", color: "av-purple",
     role: "Alter Ego Executivo Digital",
-    nucleus: "Estrategia", version: "—",
+    nucleus: "Estrategia", version: "v1.0",
     desc: "Parceiro estrategico digital de Kleber Miguel. Analisa cenarios (otimista vs pessimista), debate decisoes de investimento, portfolio e M&A. Profundo conhecimento do mercado de saude privada no Brasil. Recomenda decisoes com nivel de confianca.",
     skills: ["Debate Estrategico", "Cenarios", "Portfolio", "M&A", "Investimento"],
     meta: { tipo: "Agente IA", nucleo: "Estrategia", veto: "Nao", status: "Ativo" }
@@ -1534,7 +1534,7 @@ const agents = {
   "KM — CPO": {
     avatar: "CP", color: "av-blue",
     role: "Orquestrador do Time — Produto & Sprints",
-    nucleus: "Orquestracao", version: "—",
+    nucleus: "Orquestracao", version: "v1.0",
     desc: "Gerente geral do ecossistema. PM senior + Scrum Master com 20 anos em sistemas de saude. Ponto unico de contato do time — gerencia Eduardo, Reinaldo, Junior, Vinicius, Harry e Gustavo. Define roadmap, sprints e trade-offs.",
     skills: ["Product Management", "Scrum", "Roadmap", "Trade-offs", "Coordenacao"],
     meta: { tipo: "Agente IA", nucleo: "Orquestracao", veto: "Arbitro final", status: "Ativo" }
@@ -1558,7 +1558,7 @@ const agents = {
   "Reinaldo": {
     avatar: "Re", color: "av-cyan",
     role: "VDF Architect — .NET 10, Clean Architecture, DDD",
-    nucleus: "N1 — Migracao VDF", version: "—",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
     desc: "Transforma a analise do Eduardo em arquitetura .NET 10 limpa seguindo DDD e Clean Architecture. Desenha estrutura de pastas, interfaces, contratos de servico e entidades EF Core. Produz apenas o esqueleto e decisoes arquiteturais — nunca gera codigo de implementacao.",
     skills: [".NET 10", "Clean Architecture", "DDD", "EF Core", "CQRS"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
@@ -1566,7 +1566,7 @@ const agents = {
   "Junior": {
     avatar: "Jr", color: "av-blue",
     role: "VDF Migrator — Gera C# em 2 passes",
-    nucleus: "N1 — Migracao VDF", version: "—",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
     desc: "Converte Visual DataFlex 16.1 para C# 14 em dois passes. Pass 1 gera o esqueleto com marcacoes VDF-TODO, Pass 2 resolve cada TODO em sessao interativa. Roda dotnet build em loop ate compilar sem erros. So ativa apos ter analise do Eduardo E design do Reinaldo.",
     skills: ["C# 14", "VDF-to-C#", "dotnet build", "2-Pass Migration"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
@@ -1574,7 +1574,7 @@ const agents = {
   "Vinicius": {
     avatar: "Vi", color: "av-teal",
     role: "VDF Parity QA — Gate 100% obrigatorio",
-    nucleus: "N1 — Migracao VDF", version: "—",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
     desc: "Valida que o codigo C# migrado pelo Junior produz os mesmos resultados que o VDF original. Cria fixtures com dados reais anonimizados do SQL Server, gera suite xUnit e executa a gate de paridade. NENHUM modulo vai para producao sem 100% de aprovacao do Vinicius.",
     skills: ["xUnit", "Fixtures Reais", "Gate Paridade", "SQL Server", "Testes Automatizados"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Sim — Paridade", status: "Ativo" }
@@ -1590,7 +1590,7 @@ const agents = {
   "Vinicius Reis": {
     avatar: "VR", color: "av-gold",
     role: "Socio — Dev principal VDF 16.1 (manutencao legado)",
-    nucleus: "N1 — Migracao VDF", version: "—",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
     desc: "Socio da 4Health e desenvolvedor principal do sistema VDF 16.1 legado. Responsavel pela manutencao diaria do ERP em producao. Consultado pelo Eduardo (com cap de 15%) para duvidas sobre regras de negocio historicas do sistema.",
     skills: ["VDF 16.1", "SQL Server", "Regras de Negocio", "Manutencao ERP"],
     meta: { tipo: "Humano", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
@@ -1606,7 +1606,7 @@ const agents = {
   "Juninho": {
     avatar: "Jn", color: "av-teal",
     role: "Malu QA + Parity Specialist — Bloqueia deploy",
-    nucleus: "N2 — Malu", version: "—",
+    nucleus: "N2 — Malu", version: "v1.0",
     desc: "Valida que a Malu em producao esta funcionando corretamente. Executa testes stress, E2E simulados, forense de producao e analise de KB gaps. NENHUM deploy da Malu vai para producao sem passar pelo Juninho. Ativado apos qualquer mudanca do Gustavo ou antes/apos deploys.",
     skills: ["Stress Test", "E2E", "Forense", "KB Gaps", "Gate Deploy"],
     meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim — Deploy Malu", status: "Ativo" }
@@ -1622,7 +1622,7 @@ const agents = {
   "Harry": {
     avatar: "Ha", color: "av-red",
     role: "Fiscal Guardian — Tolerancia zero",
-    nucleus: "N3 — Corporativo", version: "—",
+    nucleus: "N3 — Corporativo", version: "v1.0",
     desc: "Valida todas as regras tributarias brasileiras: NF-e, NFS-e, SPED, eSocial, ICMS, PIS, COFINS, IPI, ISS, TISS. Ativado SEMPRE que um modulo tenha logica fiscal ou financeira critica. Tolerancia zero — qualquer divergencia fiscal bloqueia o deploy.",
     skills: ["NF-e", "SPED", "ICMS", "PIS/COFINS", "ISS", "TISS", "eSocial Fiscal"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — Fiscal", status: "Ativo" }
@@ -1662,7 +1662,7 @@ const agents = {
   "Anderson Farah": {
     avatar: "AF", color: "av-indigo",
     role: "DPO + Compliance Officer Integrado",
-    nucleus: "N3 — Corporativo", version: "—",
+    nucleus: "N3 — Corporativo", version: "v1.0",
     desc: "CIPM (IAPP), CDPO/BR (ANPD), ISO 27001/27701 Lead Auditor. Orquestra compliance cross-dominio coordenando Harry (fiscal), Dr. KM (juridico/LGPD), Jorge Mendes (contabil), Charl (SST/eSocial) e Marco Antonio (regulatorio saude). Garante que nenhuma obrigacao caia entre dominios.",
     skills: ["LGPD", "ROPA", "RIPD", "ANPD", "ISO 27001", "Compliance Cross-Dominio"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — LGPD", status: "Ativo" }
@@ -1678,7 +1678,7 @@ const agents = {
   "GjAlves": {
     avatar: "Gj", color: "av-cyan",
     role: "Infra + DevOps + Seguranca + OS/Hardware + Mobile Dev",
-    nucleus: "N5 — Infra", version: "—",
+    nucleus: "N5 — Infra", version: "v1.0",
     desc: "Responsavel tecnico pela infraestrutura de producao. Gerencia Linux, Windows Server, Docker, firewall, backup, monitoramento, CI/CD, compliance. Expert em OS (Windows/Linux/macOS/Android), hardware (Dell XPS, Mac, Samsung S Ultra), ecossistemas Samsung/Apple e desenvolvimento mobile senior (Kotlin, Swift, Flutter, React Native, KMP, .NET MAUI). SEMPRE verifica o estado real da infra antes de propor mudancas.",
     skills: ["VPS", "Docker", "Firewall", "CI/CD", "SSL", "Backup", "OS/Hardware", "Mobile Dev"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Sim — Seguranca", status: "Ativo" }
