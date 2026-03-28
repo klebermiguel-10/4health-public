@@ -775,7 +775,7 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v3.1 &mdash; 27 Marco 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v3.2 &mdash; 28 Marco 2026</div>
     <div class="stats">
       <div class="stat">
         <div class="stat-value">25</div>
@@ -1130,7 +1130,7 @@
           <div class="nucleus-icon">&#9889;</div>
           <div>
             <div class="nucleus-name">N5 &mdash; Infraestrutura, Suporte & Qualidade</div>
-            <div class="nucleus-desc">3 agentes</div>
+            <div class="nucleus-desc">4 agentes</div>
           </div>
         </div>
         <div class="nucleus-members">
@@ -1150,11 +1150,19 @@
             </div>
             <span class="member-tag tag-active">v1.0</span>
           </div>
-          <div class="member">
+          <div class="member" data-agent="Helena" onclick="openModal('Helena')">
             <div class="member-avatar av-teal">He</div>
             <div class="member-info">
               <div class="member-name">Helena</div>
               <div class="member-spec">QA Lead &mdash; Quality Gates, Auditorias, SLA, CAPA, 4 pilares</div>
+            </div>
+            <span class="member-tag tag-active">v2.0</span>
+          </div>
+          <div class="member" data-agent="Aurelio" onclick="openModal('Aurelio')">
+            <div class="member-avatar av-teal">Au</div>
+            <div class="member-info">
+              <div class="member-name">Aurelio</div>
+              <div class="member-spec">Quality Auditor Interno &mdash; Audita agentes, mystery shopping, compliance</div>
             </div>
             <span class="member-tag tag-active">v1.0</span>
           </div>
@@ -1470,6 +1478,10 @@
         <div style="font-size:11px;font-weight:700;">Helena</div>
         <div style="font-size:9px;color:var(--text-muted);">N5 QA Lead</div>
       </div>
+      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-teal);text-align:center;">
+        <div style="font-size:11px;font-weight:700;">Aurelio</div>
+        <div style="font-size:9px;color:var(--text-muted);">N5 Quality Auditor</div>
+      </div>
     </div>
     <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
       <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
@@ -1504,8 +1516,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v3.1</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 27 Marco 2026</p>
-    <p style="margin-top:4px;">25 agentes individuais &bull; 7 squad MKT &bull; 2 humanos &bull; 87 skills &bull; 7 nucleos &bull; 6 agentes com poder de veto</p>
+    <p><strong>Organograma v3.2</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 28 Marco 2026</p>
+    <p style="margin-top:4px;">25 agentes individuais &bull; 7 squad MKT &bull; 2 humanos &bull; 92 skills &bull; 7 nucleos &bull; 6 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1718,9 +1730,17 @@ const agents = {
   "Helena": {
     avatar: "He", color: "av-teal",
     role: "QA Lead & Quality Manager para Saude",
-    nucleus: "N5 — Infra & Qualidade", version: "v1.0",
+    nucleus: "N5 — Infra & Qualidade", version: "v2.0",
     desc: "18 anos em Quality Assurance e Quality Management para software de saude no Brasil. Orquestra os 6 veto holders, consolida metricas dos 4 pilares (Software, Servico, Processo, Regulatorio) e garante que NENHUM entregavel va para producao sem passar pelos gates de qualidade. Coordena quality gates, auditorias de processo, CAPA, SLA monitoring e melhoria continua. NAO tem poder de veto — reporta ao KM — CPO.",
     skills: ["Quality Gates", "Quality Audit", "Quality Dashboard", "SLA Monitor", "CAPA", "Melhoria Continua"],
+    meta: { tipo: "Agente IA", nucleo: "N5 Infra & Qualidade", veto: "Nao", status: "Ativo" }
+  },
+  "Aurelio": {
+    avatar: "Au", color: "av-teal",
+    role: "Quality Auditor Interno",
+    nucleus: "N5 — Infra & Qualidade", version: "v1.0",
+    desc: "Auditor independente. Audita agentes, quality gates da Helena, mystery shopping Malu, compliance spot-check, post-mortem follow-up, metricas audit. Reporta direto ao KM — Humano (nao ao CPO). 12 regras, 9 skills.",
+    skills: ["Audit Agentes", "Mystery Shopping", "Compliance Spot-Check", "Post-Mortem Follow-Up", "Metricas Audit", "Quality Gate Audit", "Process Audit", "Report KM — Humano", "Independence Assurance"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra & Qualidade", veto: "Nao", status: "Ativo" }
   }
 };
