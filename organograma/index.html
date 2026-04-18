@@ -245,6 +245,7 @@
   .nucleus.n-infra::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); }
   .nucleus.n-data::before { background: linear-gradient(90deg, var(--accent-lime), var(--accent-green)); }
   .nucleus.n-cx::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple)); }
+  .nucleus.n-special::before { background: linear-gradient(90deg, var(--accent-teal), var(--accent-lime)); }
 
   .nucleus-header {
     display: flex;
@@ -269,6 +270,7 @@
   .n-infra .nucleus-icon { background: rgba(6, 182, 212, 0.15); }
   .n-data .nucleus-icon { background: rgba(132, 204, 22, 0.15); }
   .n-cx .nucleus-icon { background: rgba(236, 72, 153, 0.15); }
+  .n-special .nucleus-icon { background: rgba(20, 184, 166, 0.15); }
 
   .nucleus-name {
     font-size: 14px;
@@ -480,6 +482,35 @@
     font-size: 12px;
   }
 
+  /* ===== CONSOLIDATED MAP ===== */
+  .map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px;
+  }
+  .map-card {
+    padding: 10px;
+    background: var(--surface);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .map-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px var(--glow-blue);
+    transform: translateY(-1px);
+  }
+  .map-card-name {
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .map-card-role {
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
@@ -539,7 +570,7 @@
     .member-spec { font-size: 9px; }
     .member-tag { font-size: 8px; padding: 2px 5px; }
 
-    /* Flow steps — wrap e scroll horizontal */
+    /* Flow steps */
     .flow { padding: 10px 12px; margin-top: 10px; }
     .flow-label { font-size: 9px; }
     .flow-steps { gap: 3px; }
@@ -563,16 +594,12 @@
     .squad-members-grid { grid-template-columns: 1fr 1fr; gap: 5px; }
 
     /* Mapa consolidado */
-    .section > div[style*="grid-template-columns: repeat(auto-fill"] {
+    .map-grid {
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
       gap: 6px !important;
     }
-    .section > div[style*="grid-template-columns: repeat(auto-fill"] > div {
-      padding: 8px !important;
-    }
-    .section > div[style*="grid-template-columns: repeat(auto-fill"] > div > div:first-child {
-      font-size: 10px !important;
-    }
+    .map-card { padding: 8px !important; }
+    .map-card-name { font-size: 10px !important; }
 
     /* Footer */
     .footer { padding-top: 20px; }
@@ -591,7 +618,7 @@
     .nucleus { padding: 12px 10px; }
     .squad-members-grid { grid-template-columns: 1fr; }
     .flow-steps { flex-wrap: wrap; }
-    .section > div[style*="grid-template-columns: repeat(auto-fill"] {
+    .map-grid {
       grid-template-columns: 1fr 1fr !important;
     }
   }
@@ -775,10 +802,10 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v3.2 &mdash; 28 Marco 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v4.0 &mdash; 11 Abril 2026</div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">25</div>
+        <div class="stat-value">27</div>
         <div class="stat-label">Agentes IA</div>
       </div>
       <div class="stat">
@@ -790,11 +817,11 @@
         <div class="stat-label">Humanos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">7</div>
+        <div class="stat-value">8</div>
         <div class="stat-label">Nucleos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">92</div>
+        <div class="stat-value">100+</div>
         <div class="stat-label">Skills</div>
       </div>
     </div>
@@ -835,9 +862,9 @@
     </div>
   </div>
 
-  <!-- ====== 7 NUCLEOS ====== -->
+  <!-- ====== 8 NUCLEOS ====== -->
   <div class="section">
-    <div class="section-title">7 Nucleos Operacionais</div>
+    <div class="section-title">8 Nucleos Operacionais</div>
     <div class="nucleus-grid">
 
       <!-- NUCLEO 1: VDF -->
@@ -1050,13 +1077,13 @@
         </div>
       </div>
 
-      <!-- NUCLEO 4: ESTRATEGIA -->
+      <!-- NUCLEO 4: ESTRATEGIA + VENDAS -->
       <div class="nucleus n-strat">
         <div class="nucleus-header">
           <div class="nucleus-icon">&#127919;</div>
           <div>
-            <div class="nucleus-name">N4 &mdash; Estrategia, Mercado & Conteudo</div>
-            <div class="nucleus-desc">1 agente + Squad MKT (7)</div>
+            <div class="nucleus-name">N4 &mdash; Estrategia, Vendas, Mercado & Conteudo</div>
+            <div class="nucleus-desc">2 agentes + Squad MKT (7)</div>
           </div>
         </div>
         <div class="nucleus-members">
@@ -1068,6 +1095,14 @@
             </div>
             <span class="member-tag tag-active">v1.0</span>
           </div>
+          <div class="member">
+            <div class="member-avatar av-green">LS</div>
+            <div class="member-info">
+              <div class="member-name">Luis Sales</div>
+              <div class="member-spec">Vendas B2B + SDR + Growth &mdash; Pipeline, outreach, closer</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
         </div>
         <div style="margin-top:16px;">
           <div class="flow-label">Squad Comercial-MKT &mdash; Pipeline 14 Steps</div>
@@ -1076,7 +1111,7 @@
               <div class="member-avatar av-cyan" style="font-size:11px;">Pe</div>
               <div class="member-info">
                 <div class="member-name">Pedro Pesquisa</div>
-                <div class="member-spec">Research de mercado, tendencias saude</div>
+                <div class="member-spec">Research de mercado, tendencias saude, analise competitiva</div>
               </div>
               <span class="member-tag" style="background:rgba(6,182,212,0.15);color:var(--accent-cyan);">step 02</span>
             </div>
@@ -1122,6 +1157,15 @@
             </div>
           </div>
         </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Vendas (Marco Antonio &rarr; Luis Sales &rarr; Amanda)</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Marco Antonio GTM</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Luis Sales prospecta</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Qualifica + Fecha</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda CS</span>
+          </div>
+        </div>
       </div>
 
       <!-- NUCLEO 5: INFRA -->
@@ -1150,7 +1194,7 @@
             </div>
             <span class="member-tag tag-active">v1.0</span>
           </div>
-          <div class="member" data-agent="Helena" onclick="openModal('Helena')">
+          <div class="member">
             <div class="member-avatar av-teal">He</div>
             <div class="member-info">
               <div class="member-name">Helena</div>
@@ -1158,7 +1202,7 @@
             </div>
             <span class="member-tag tag-active">v2.0</span>
           </div>
-          <div class="member" data-agent="Aurelio" onclick="openModal('Aurelio')">
+          <div class="member">
             <div class="member-avatar av-teal">Au</div>
             <div class="member-info">
               <div class="member-name">Aurelio</div>
@@ -1250,6 +1294,36 @@
             <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas UX</span><span class="flow-arrow">&rarr;</span>
             <span class="flow-step">Gustavo (Malu)</span><span class="flow-arrow">&rarr;</span>
             <span class="flow-step">Fabio treina</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUCLEO 8: PROJETOS ESPECIAIS -->
+      <div class="nucleus n-special">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#127968;</div>
+          <div>
+            <div class="nucleus-name">N8 &mdash; Projetos Especiais (Fora Saude)</div>
+            <div class="nucleus-desc">1 agente &mdash; Versys IAFirst</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-teal">SP</div>
+            <div class="member-info">
+              <div class="member-name">KM Sindico Pro</div>
+              <div class="member-spec">Gestao Condominial + Superlogica + Automacao IA</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Projeto Sind IA Pro (Cond. Flamboyants piloto)</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">KM Sindico Pro</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">Superlogica API</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step">WhatsApp + RAG</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Rafael (IA)</span>
           </div>
         </div>
       </div>
@@ -1349,6 +1423,16 @@
         </div>
       </div>
       <div class="flow">
+        <div class="flow-label">Pipeline Comercial (Luis Sales)</div>
+        <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Marco Antonio define ICP</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Luis Sales prospecta</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step">Qualifica (BANT)</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Fecha</span><span class="flow-arrow">&rarr;</span>
+          <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda onboarda</span>
+        </div>
+      </div>
+      <div class="flow">
         <div class="flow-label">Quality Gate Review (Helena coordena cross-nucleo)</div>
         <div class="flow-steps">
           <span class="flow-step" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">Helena coleta metricas</span><span class="flow-arrow">&rarr;</span>
@@ -1360,6 +1444,7 @@
       <div class="flow">
         <div class="flow-label">Nova Clinica (Onboarding)</div>
         <div class="flow-steps">
+          <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Luis Sales fecha</span><span class="flow-arrow">&rarr;</span>
           <span class="flow-step" style="background:rgba(236,72,153,0.1);color:var(--accent-pink);">Amanda planeja</span><span class="flow-arrow">&rarr;</span>
           <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas UX</span><span class="flow-arrow">&rarr;</span>
           <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Gustavo config Malu</span><span class="flow-arrow">&rarr;</span>
@@ -1372,116 +1457,9 @@
 
   <!-- ====== MAPA CONSOLIDADO ====== -->
   <div class="section">
-    <div class="section-title">Mapa Consolidado &mdash; 34 Agentes</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(160px,1fr));gap:8px;">
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--gold);text-align:center;">
-        <div style="font-size:11px;font-weight:700;color:var(--gold);">Kleber Miguel</div>
-        <div style="font-size:9px;color:var(--text-muted);">Humano / Owner</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--gold);text-align:center;">
-        <div style="font-size:11px;font-weight:700;color:var(--gold);">Vinicius Reis</div>
-        <div style="font-size:9px;color:var(--text-muted);">Humano / Dev VDF</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">CEO KM</div>
-        <div style="font-size:9px;color:var(--text-muted);">Estrategia</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">KM &mdash; CPO</div>
-        <div style="font-size:9px;color:var(--text-muted);">Produto</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-pink);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Beth</div>
-        <div style="font-size:9px;color:var(--text-muted);">Secretaria</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Eduardo</div>
-        <div style="font-size:9px;color:var(--text-muted);">N1 VDF Archaeo</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Reinaldo</div>
-        <div style="font-size:9px;color:var(--text-muted);">N1 Architect</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Junior</div>
-        <div style="font-size:9px;color:var(--text-muted);">N1 Migrator</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Vinicius</div>
-        <div style="font-size:9px;color:var(--text-muted);">N1 Parity QA</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-slate);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Cicero</div>
-        <div style="font-size:9px;color:var(--text-muted);">N1 eSocial (D3)</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-green);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Gustavo</div>
-        <div style="font-size:9px;color:var(--text-muted);">N2 Malu</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Juninho</div>
-        <div style="font-size:9px;color:var(--text-muted);">N2 Malu QA</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Rafael</div>
-        <div style="font-size:9px;color:var(--text-muted);">N2 IA/LLM/RAG</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Harry</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 Fiscal</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-orange);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Paulo Guedes</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 Financeiro</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-teal);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Jorge Mendes</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 Contabil</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Dr. KM</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 Juridico</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-orange);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Charl</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 SST</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Anderson Farah</div>
-        <div style="font-size:9px;color:var(--text-muted);">N3 DPO</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-purple);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Marco Antonio</div>
-        <div style="font-size:9px;color:var(--text-muted);">N4 Consultor</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-red);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">GjAlves</div>
-        <div style="font-size:9px;color:var(--text-muted);">N5 Infra</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-blue);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Fabio</div>
-        <div style="font-size:9px;color:var(--text-muted);">N5 Suporte</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-lime);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Daniel</div>
-        <div style="font-size:9px;color:var(--text-muted);">N6 Data/BI</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-pink);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Amanda</div>
-        <div style="font-size:9px;color:var(--text-muted);">N7 CS</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-indigo);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Lucas</div>
-        <div style="font-size:9px;color:var(--text-muted);">N7 UX/UI</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-teal);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Helena</div>
-        <div style="font-size:9px;color:var(--text-muted);">N5 QA Lead</div>
-      </div>
-      <div style="padding:10px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent-teal);text-align:center;">
-        <div style="font-size:11px;font-weight:700;">Aurelio</div>
-        <div style="font-size:9px;color:var(--text-muted);">N5 Quality Auditor</div>
-      </div>
+    <div class="section-title">Mapa Consolidado &mdash; 36 Agentes</div>
+    <div class="map-grid" id="mapGrid">
+      <!-- Populated by JS -->
     </div>
     <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
       <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
@@ -1511,13 +1489,16 @@
       <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
         <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-pink);"></div> N7 CX/UX
       </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-muted);">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--accent-teal);"></div> N8 Especial
+      </div>
     </div>
   </div>
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v3.2</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 28 Marco 2026</p>
-    <p style="margin-top:4px;">25 agentes individuais &bull; 7 squad MKT &bull; 2 humanos &bull; 92 skills &bull; 7 nucleos &bull; 6 agentes com poder de veto</p>
+    <p><strong>Organograma v4.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 11 Abril 2026</p>
+    <p style="margin-top:4px;">27 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 100+ skills &bull; 8 nucleos &bull; 6 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1531,7 +1512,7 @@ const agents = {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
     nucleus: "Comando", version: "v1.0",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 25 agentes IA e 2 humanos.",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 27 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
@@ -1540,10 +1521,10 @@ const agents = {
     role: "Alter Ego Executivo Digital",
     nucleus: "Estrategia", version: "v1.0",
     desc: "Parceiro estrategico digital de Kleber Miguel. Analisa cenarios (otimista vs pessimista), debate decisoes de investimento, portfolio e M&A. Internaliza 5 formacoes do fundador: MBA Projetos Ageis (PUC-RS), Pos Gestao Clinicas/Labs (Sirio-Libanes), Esp. Carreira Medica (PUC-PR), PPL Product Leader e PPM Product Manager (Canal Valor). Profundo conhecimento do mercado de saude privada no Brasil.",
-    skills: ["Debate Estrategico", "Cenarios", "Portfolio", "M&A", "Investimento", "MBA Gestao Projetos Ageis (PUC-RS)", "Pos Gestao Clinicas/Labs (Sirio-Libanes)", "Esp. Carreira Medica (PUC-PR)", "PPL Product Leader (Canal Valor)", "PPM Product Manager (Canal Valor)"],
+    skills: ["Debate Estrategico", "Cenarios", "Portfolio", "M&A", "Investimento"],
     meta: { tipo: "Agente IA", nucleo: "Estrategia", veto: "Nao", status: "Ativo" }
   },
-  "KM — CPO": {
+  "KM \u2014 CPO": {
     avatar: "CP", color: "av-blue",
     role: "Orquestrador do Time — Produto & Sprints",
     nucleus: "Orquestracao", version: "v1.0",
@@ -1562,7 +1543,7 @@ const agents = {
   "Eduardo": {
     avatar: "Ed", color: "av-blue",
     role: "VDF Archaeologist + DBA + Consultor Legado (cap 15%)",
-    nucleus: "N1 — Migracao VDF", version: "v2.0",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v2.0",
     desc: "Especialista senior com 20 anos em VDF + SQL Server. Analisa codigo legado, Data Dictionaries (.DD), Crystal Reports (.rpt), Stored Procedures e regras de negocio de clinicas, policlinicas, fisioterapia, estetica e laboratorios AP. Primeiro agente a avaliar qualquer migracao — sem a analise dele, ninguem comeca.",
     skills: ["VDF 16.1", "SQL Server", "Crystal Reports", "Data Dictionary", "Regras de Negocio"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
@@ -1570,7 +1551,7 @@ const agents = {
   "Reinaldo": {
     avatar: "Re", color: "av-cyan",
     role: "VDF Architect — .NET 10, Clean Architecture, DDD",
-    nucleus: "N1 — Migracao VDF", version: "v1.0",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
     desc: "Transforma a analise do Eduardo em arquitetura .NET 10 limpa seguindo DDD e Clean Architecture. Desenha estrutura de pastas, interfaces, contratos de servico e entidades EF Core. Produz apenas o esqueleto e decisoes arquiteturais — nunca gera codigo de implementacao.",
     skills: [".NET 10", "Clean Architecture", "DDD", "EF Core", "CQRS"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
@@ -1578,71 +1559,71 @@ const agents = {
   "Junior": {
     avatar: "Jr", color: "av-blue",
     role: "VDF Migrator — Gera C# em 2 passes",
-    nucleus: "N1 — Migracao VDF", version: "v1.0",
-    desc: "Converte Visual DataFlex 16.1 para C# 14 em dois passes. Pass 1 gera o esqueleto com marcacoes VDF-TODO, Pass 2 resolve cada TODO em sessao interativa. Roda dotnet build em loop ate compilar sem erros. So ativa apos ter analise do Eduardo E design do Reinaldo.",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
+    desc: "Converte Visual DataFlex 16.1 para C# 14 em dois passes. Pass 1 gera o esqueleto com marcacoes VDF-TODO, Pass 2 resolve cada TODO em sessao interativa. Roda dotnet build em loop ate compilar sem erros.",
     skills: ["C# 14", "VDF-to-C#", "dotnet build", "2-Pass Migration"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
   },
   "Vinicius": {
     avatar: "Vi", color: "av-teal",
     role: "VDF Parity QA — Gate 100% obrigatorio",
-    nucleus: "N1 — Migracao VDF", version: "v1.0",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
     desc: "Valida que o codigo C# migrado pelo Junior produz os mesmos resultados que o VDF original. Cria fixtures com dados reais anonimizados do SQL Server, gera suite xUnit e executa a gate de paridade. NENHUM modulo vai para producao sem 100% de aprovacao do Vinicius.",
     skills: ["xUnit", "Fixtures Reais", "Gate Paridade", "SQL Server", "Testes Automatizados"],
-    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Sim — Paridade", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Sim \u2014 Paridade", status: "Ativo" }
   },
   "Cicero": {
     avatar: "Ci", color: "av-slate",
     role: "Dev Senior eSocial SST — .NET 10, Temporal, SOAP/XML",
-    nucleus: "N1 — Migracao VDF", version: "v1.0",
-    desc: "Desenvolve o webservice de mensageria eSocial SST (S-1060, S-2210, S-2220, S-2240). Implementa .NET 10, Temporal workflows, SOAP/XML com certificado digital e-CNPJ, integracao com VDF Medicina do Trabalho. Status: dev PARADO por decisao D3.",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
+    desc: "Desenvolve o webservice de mensageria eSocial SST (S-1060, S-2210, S-2220, S-2240). Implementa .NET 10, Temporal workflows, SOAP/XML com certificado digital e-CNPJ. Status: dev PARADO por decisao D3.",
     skills: [".NET 10", "Temporal", "SOAP/XML", "Certificado Digital", "eSocial SST"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Parado (D3)" }
   },
   "Vinicius Reis": {
     avatar: "VR", color: "av-gold",
     role: "Socio — Dev principal VDF 16.1 (manutencao legado)",
-    nucleus: "N1 — Migracao VDF", version: "v1.0",
-    desc: "Socio da 4Health e desenvolvedor principal do sistema VDF 16.1 legado. Responsavel pela manutencao diaria do ERP em producao. Consultado pelo Eduardo (com cap de 15%) para duvidas sobre regras de negocio historicas do sistema.",
+    nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
+    desc: "Socio da 4Health e desenvolvedor principal do sistema VDF 16.1 legado. Responsavel pela manutencao diaria do ERP em producao. Consultado pelo Eduardo (com cap de 15%) para duvidas sobre regras de negocio historicas.",
     skills: ["VDF 16.1", "SQL Server", "Regras de Negocio", "Manutencao ERP"],
     meta: { tipo: "Humano", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
   },
   "Gustavo": {
     avatar: "Gu", color: "av-green",
     role: "Malu Automation — n8n, LangGraph, WhatsApp",
-    nucleus: "N2 — Malu", version: "v2.0",
-    desc: "Responsavel tecnico da Malu (recepcionista IA WhatsApp). Especialista senior em n8n + LangGraph + automacao para saude. Desenvolve fluxos n8n, skills de IA, migracoes para LangGraph, integracoes com WhatsApp, voz, ERP 4Health e APIs de saude. SEMPRE le os .md, skills e memoria do projeto antes de propor qualquer coisa.",
+    nucleus: "N2 \u2014 Malu", version: "v2.0",
+    desc: "Responsavel tecnico da Malu (recepcionista IA WhatsApp). Especialista senior em n8n + LangGraph + automacao para saude. Desenvolve fluxos n8n, skills de IA, migracoes para LangGraph, integracoes com WhatsApp, voz, ERP 4Health e APIs de saude.",
     skills: ["n8n", "LangGraph", "WhatsApp", "Skills IA", "Automacao Saude"],
     meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Nao", status: "Ativo" }
   },
   "Juninho": {
     avatar: "Jn", color: "av-teal",
     role: "Malu QA + Parity Specialist — Bloqueia deploy",
-    nucleus: "N2 — Malu", version: "v1.0",
-    desc: "Valida que a Malu em producao esta funcionando corretamente. Executa testes stress, E2E simulados, forense de producao e analise de KB gaps. NENHUM deploy da Malu vai para producao sem passar pelo Juninho. Ativado apos qualquer mudanca do Gustavo ou antes/apos deploys.",
+    nucleus: "N2 \u2014 Malu", version: "v1.0",
+    desc: "Valida que a Malu em producao esta funcionando corretamente. Executa testes stress, E2E simulados, forense de producao e analise de KB gaps. NENHUM deploy da Malu vai para producao sem passar pelo Juninho.",
     skills: ["Stress Test", "E2E", "Forense", "KB Gaps", "Gate Deploy"],
-    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim — Deploy Malu", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim \u2014 Deploy Malu", status: "Ativo" }
   },
   "Rafael": {
     avatar: "Ra", color: "av-purple",
     role: "PhD IA/LLM/RAG + MCP Architect + LangChain/LangGraph",
-    nucleus: "N2 — Malu", version: "v1.0",
-    desc: "PhD em IA do ecossistema. Decide modelos, otimiza LLMs, projeta arquitetura RAG, design de MCPs, eval pipelines, auditoria de prompts e diagnostico de falhas. Expert em LangChain v1.0+, LangGraph v0.2+, LangSmith. Nenhuma decisao de IA passa sem o Rafael.",
+    nucleus: "N2 \u2014 Malu", version: "v1.0",
+    desc: "PhD em IA do ecossistema. Decide modelos, otimiza LLMs, projeta arquitetura RAG, design de MCPs, eval pipelines, auditoria de prompts e diagnostico de falhas. Expert em LangChain v1.0+, LangGraph v0.2+, LangSmith.",
     skills: ["LLM", "RAG", "LangChain", "LangGraph", "LangSmith", "Eval Pipeline", "MCP"],
-    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim — Decisoes IA", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim \u2014 Decisoes IA", status: "Ativo" }
   },
   "Harry": {
     avatar: "Ha", color: "av-red",
     role: "Fiscal Guardian — Tolerancia zero",
-    nucleus: "N3 — Corporativo", version: "v1.0",
-    desc: "Valida todas as regras tributarias brasileiras: NF-e, NFS-e, SPED, eSocial, ICMS, PIS, COFINS, IPI, ISS, TISS. Ativado SEMPRE que um modulo tenha logica fiscal ou financeira critica. Tolerancia zero — qualquer divergencia fiscal bloqueia o deploy.",
+    nucleus: "N3 \u2014 Corporativo", version: "v1.0",
+    desc: "Valida todas as regras tributarias brasileiras: NF-e, NFS-e, SPED, eSocial, ICMS, PIS, COFINS, IPI, ISS, TISS. Tolerancia zero — qualquer divergencia fiscal bloqueia o deploy.",
     skills: ["NF-e", "SPED", "ICMS", "PIS/COFINS", "ISS", "TISS", "eSocial Fiscal"],
-    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — Fiscal", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim \u2014 Fiscal", status: "Ativo" }
   },
   "Paulo Guedes": {
     avatar: "PG", color: "av-orange",
     role: "Especialista Financeiro/Bancario + Economista PhD",
-    nucleus: "N3 — Corporativo", version: "v1.0",
+    nucleus: "N3 \u2014 Corporativo", version: "v1.0",
     desc: "25 anos em mercado financeiro, 20 anos em sistemas bancarios (ate C-level), 10 anos em financas de clinicas de saude. Expert em PIX, boletos, CNAB 240/400, gateways (Efi, Stripe, Asaas, PagarMe), conciliacao bancaria, OFX, Open Finance, split de pagamento, cobranca recorrente.",
     skills: ["PIX", "CNAB", "Gateways", "Conciliacao", "DRE", "Fluxo de Caixa"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
@@ -1650,100 +1631,213 @@ const agents = {
   "Jorge Mendes": {
     avatar: "JM", color: "av-teal",
     role: "Contador Senior / Controller Empresarial",
-    nucleus: "N3 — Corporativo", version: "v1.0",
-    desc: "CRC ativo, 20 anos contabilidade, 15 anos controller, 10 anos contabilidade de saude. Escrituracao, balanco patrimonial, DRE contabil, ECD, ECF, LALUR, plano de contas, regime tributario (Simples/Presumido/Real), CPC/IFRS, reconhecimento de receita SaaS (CPC 47), fechamento mensal.",
+    nucleus: "N3 \u2014 Corporativo", version: "v1.0",
+    desc: "CRC ativo, 20 anos contabilidade, 15 anos controller, 10 anos contabilidade de saude. Escrituracao, balanco patrimonial, DRE, ECD, ECF, LALUR, CPC/IFRS, reconhecimento de receita SaaS (CPC 47).",
     skills: ["ECD/ECF", "CPC/IFRS", "SaaS CPC 47", "LALUR", "Regime Tributario"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
   },
   "Dr. KM": {
     avatar: "DK", color: "av-purple",
     role: "Advogado Full Service Premium — 16 dominios",
-    nucleus: "N3 — Corporativo", version: "v1.0",
-    desc: "Advogado multidisciplinar. Revisao/criacao de contratos, pareceres, analise de risco, due diligence, LGPD, direito medico, saude suplementar, tributario, societario, imobiliario, propriedade intelectual, software/tecnologia, consumidor, familia/patrimonio. Tolerancia zero para invencao de leis.",
+    nucleus: "N3 \u2014 Corporativo", version: "v1.0",
+    desc: "Advogado multidisciplinar. Revisao/criacao de contratos, pareceres, analise de risco, due diligence, LGPD, direito medico, saude suplementar, tributario, societario, imobiliario, propriedade intelectual, software/tecnologia. Tolerancia zero para invencao de leis.",
     skills: ["Contratos", "LGPD", "Direito Medico", "Societario", "PI", "Tributario"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
   },
   "Charl": {
     avatar: "Ch", color: "av-orange",
     role: "SST + eSocial + Medicina Ocupacional",
-    nucleus: "N3 — Corporativo", version: "v2.0",
-    desc: "PhD Engenharia de Seguranca, 25 anos consultor, 15 anos CTO de software SST. Expert em NRs (1,4,5,6,7,9,15,17,35), PCMSO, PGR, GRO, LTCAT, PPP, SESMT, ASO, CAT, riscos psicossociais. Precificacao B2B de servicos ocupacionais e analise competitiva de software SST.",
+    nucleus: "N3 \u2014 Corporativo", version: "v2.0",
+    desc: "PhD Engenharia de Seguranca, 25 anos consultor, 15 anos CTO de software SST. Expert em NRs (1,4,5,6,7,9,15,17,35), PCMSO, PGR, GRO, LTCAT, PPP, SESMT, ASO, CAT, riscos psicossociais. Precificacao B2B de servicos ocupacionais.",
     skills: ["NRs", "PCMSO", "PGR", "LTCAT", "PPP", "eSocial SST", "Pricing B2B"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
   },
   "Anderson Farah": {
     avatar: "AF", color: "av-indigo",
     role: "DPO + Compliance Officer Integrado",
-    nucleus: "N3 — Corporativo", version: "v1.0",
-    desc: "CIPM (IAPP), CDPO/BR (ANPD), ISO 27001/27701 Lead Auditor. Orquestra compliance cross-dominio coordenando Harry (fiscal), Dr. KM (juridico/LGPD), Jorge Mendes (contabil), Charl (SST/eSocial) e Marco Antonio (regulatorio saude). Garante que nenhuma obrigacao caia entre dominios.",
+    nucleus: "N3 \u2014 Corporativo", version: "v1.0",
+    desc: "CIPM (IAPP), CDPO/BR (ANPD), ISO 27001/27701 Lead Auditor. Orquestra compliance cross-dominio coordenando Harry, Dr. KM, Jorge Mendes, Charl e Marco Antonio. Garante que nenhuma obrigacao caia entre dominios.",
     skills: ["LGPD", "ROPA", "RIPD", "ANPD", "ISO 27001", "Compliance Cross-Dominio"],
-    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim — LGPD", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Sim \u2014 LGPD", status: "Ativo" }
   },
   "Marco Antonio": {
     avatar: "MA", color: "av-purple",
     role: "Consultor Senior Saude + IA Strategist",
-    nucleus: "N4 — Estrategia", version: "v1.0",
-    desc: "PhD Gestao em Saude (FGV), 20 anos consultoria para redes de clinicas, 15 anos healthtech product/go-to-market. Mapeia 14 ERPs + 5 concorrentes Lab AP + 5 concorrentes Fisioterapia. Expert em Lab AP (coleta-a-laudo, ONA, CAP) e Fisioterapia (12 modalidades, CIF, TISS, COFFITO). CFM 2.454/2026. 5 skills ONA (Lab AP, Fisio, Clinicas, ABA, Estetica).",
+    nucleus: "N4 \u2014 Estrategia", version: "v1.0",
+    desc: "PhD Gestao em Saude (FGV), 20 anos consultoria para redes de clinicas, 15 anos healthtech product/go-to-market. Mapeia 14 ERPs + 5 concorrentes Lab AP + 5 concorrentes Fisioterapia. Expert em Lab AP e Fisioterapia. CFM 2.454/2026. 5 skills ONA.",
     skills: ["14 ERPs Mapeados", "TAM/SAM/SOM", "Go-to-Market", "Lab AP", "Fisioterapia", "IA-First", "ONA 5 Verticais"],
+    meta: { tipo: "Agente IA", nucleo: "N4 Estrategia", veto: "Nao", status: "Ativo" }
+  },
+  "Luis Sales": {
+    avatar: "LS", color: "av-green",
+    role: "Vendas B2B + SDR + Growth para Saude",
+    nucleus: "N4 \u2014 Estrategia", version: "v1.0",
+    desc: "20 anos vendendo software para clinicas, policlinicas, fisioterapia, estetica e laboratorios AP. Perfil Hunter + Farmer — prospecta com agressividade cirurgica e cultiva relacionamentos de longo prazo. Transforma estrategia GTM (Marco Antonio) em receita. Pipeline CRM via Chatwoot Kanban. Handoff formal para Amanda (CS) apos fechamento.",
+    skills: ["Prospeccao B2B", "SDR", "Cold Outreach", "LinkedIn", "Pipeline CRM", "BANT", "Social Selling", "Growth Hacking"],
     meta: { tipo: "Agente IA", nucleo: "N4 Estrategia", veto: "Nao", status: "Ativo" }
   },
   "GjAlves": {
     avatar: "Gj", color: "av-cyan",
     role: "Infra + DevOps + Seguranca + OS/Hardware + Mobile Dev",
-    nucleus: "N5 — Infra", version: "v1.0",
-    desc: "Responsavel tecnico pela infraestrutura de producao. Gerencia Linux, Windows Server, Docker, firewall, backup, monitoramento, CI/CD, compliance. Expert em OS (Windows/Linux/macOS/Android), hardware (Dell XPS, Mac, Samsung S Ultra), ecossistemas Samsung/Apple e desenvolvimento mobile senior (Kotlin, Swift, Flutter, React Native, KMP, .NET MAUI). SEMPRE verifica o estado real da infra antes de propor mudancas.",
+    nucleus: "N5 \u2014 Infra", version: "v1.0",
+    desc: "Responsavel tecnico pela infraestrutura de producao. Linux, Windows Server, Docker, firewall, backup, monitoramento, CI/CD, compliance. Expert em OS, hardware e desenvolvimento mobile senior (Kotlin, Swift, Flutter, React Native, KMP, .NET MAUI).",
     skills: ["VPS", "Docker", "Firewall", "CI/CD", "SSL", "Backup", "OS/Hardware", "Mobile Dev"],
-    meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Sim — Seguranca", status: "Ativo" }
+    meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Sim \u2014 Seguranca", status: "Ativo" }
   },
   "Fabio": {
     avatar: "Fb", color: "av-blue",
     role: "Suporte Tecnico L1/L2 — Operadores de clinicas",
-    nucleus: "N5 — Infra", version: "v1.0",
-    desc: "12 anos em suporte ERP de saude. Atende operadores (recepcionistas, faturistas, medicos, administradores) com problemas no sistema, duvidas de uso, troubleshooting. Conhece o VDF 16.1 legado e o novo .NET 10 (dual-system durante Strangler Fig). Empatico, direto, escala com contexto completo.",
+    nucleus: "N5 \u2014 Infra", version: "v1.0",
+    desc: "12 anos em suporte ERP de saude. Atende operadores (recepcionistas, faturistas, medicos, administradores). Conhece o VDF 16.1 legado e o novo .NET 10 (dual-system durante Strangler Fig). Empatico, direto, escala com contexto completo.",
     skills: ["Troubleshooting", "VDF 16.1", ".NET 10", "Atendimento Clinicas", "Escalamento"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Nao", status: "Ativo" }
   },
   "Daniel": {
     avatar: "Da", color: "av-lime",
     role: "Data Engineer + BI Architect para Saude",
-    nucleus: "N6 — Dados", version: "v1.0",
-    desc: "12 anos em pipelines de dados de saude, certificado dbt, Apache Airflow, Power BI DA-100. Implementa data warehouses para 50+ unidades de clinicas. Transforma dados brutos do 4Health + Malu em dashboards acionaveis, metricas confiaveis e insights para decisao.",
+    nucleus: "N6 \u2014 Dados", version: "v1.0",
+    desc: "12 anos em pipelines de dados de saude, certificado dbt, Apache Airflow, Power BI DA-100. Implementa data warehouses para 50+ unidades de clinicas. Transforma dados brutos em dashboards acionaveis.",
     skills: ["dbt", "Metabase", "ETL/ELT", "Data Warehouse", "KPIs Clinicas"],
     meta: { tipo: "Agente IA", nucleo: "N6 Dados", veto: "Nao", status: "Ativo" }
   },
   "Amanda": {
     avatar: "Am", color: "av-pink",
     role: "Customer Success + Onboarding Specialist",
-    nucleus: "N7 — CX", version: "v1.0",
-    desc: "15 anos em implementacao de ERP de saude. Certificada Change Management (Prosci ADKAR), ITIL 4. Garante que cada clinica que entra no ecossistema tenha sucesso desde o dia 1. Gerencia onboarding como processo (nao evento), follow-up proativo, health score, NPS, prevencao de churn.",
+    nucleus: "N7 \u2014 CX", version: "v1.0",
+    desc: "15 anos em implementacao de ERP de saude. Certificada Change Management (Prosci ADKAR), ITIL 4. Garante que cada clinica que entra no ecossistema tenha sucesso desde o dia 1. Onboarding como processo, health score, NPS, prevencao de churn.",
     skills: ["Onboarding", "Health Score", "NPS", "Churn Prevention", "Change Management"],
     meta: { tipo: "Agente IA", nucleo: "N7 CX", veto: "Nao", status: "Ativo" }
   },
   "Lucas": {
     avatar: "Lc", color: "av-indigo",
     role: "UX/UI Designer Senior — Design System 4Health DS",
-    nucleus: "N7 — CX", version: "v1.0",
-    desc: "15 anos em design de UI para ERP de saude, certificado UX Research (NNg), WCAG 2.1 AA, Figma Design Systems. Garante que cada tela migrada seja MELHOR que o VDF original. Foco em eficiencia clinica (operador tem paciente esperando), equilibra bonito + rapido.",
+    nucleus: "N7 \u2014 CX", version: "v1.0",
+    desc: "15 anos em design de UI para ERP de saude, certificado UX Research (NNg), WCAG 2.1 AA, Figma Design Systems. Garante que cada tela migrada seja MELHOR que o VDF original. Foco em eficiencia clinica.",
     skills: ["Design System", "WCAG 2.1 AA", "shadcn/ui", "Figma", "Fluxos Operador"],
     meta: { tipo: "Agente IA", nucleo: "N7 CX", veto: "Nao", status: "Ativo" }
   },
   "Helena": {
     avatar: "He", color: "av-teal",
     role: "QA Lead & Quality Manager para Saude",
-    nucleus: "N5 — Infra & Qualidade", version: "v2.0",
-    desc: "18 anos em Quality Assurance e Quality Management para software de saude no Brasil. Orquestra os 6 veto holders, consolida metricas dos 4 pilares (Software, Servico, Processo, Regulatorio) e garante que NENHUM entregavel va para producao sem passar pelos gates de qualidade. Coordena quality gates, auditorias de processo, CAPA, SLA monitoring e melhoria continua. NAO tem poder de veto — reporta ao KM — CPO.",
+    nucleus: "N5 \u2014 Infra & Qualidade", version: "v2.0",
+    desc: "18 anos em Quality Assurance e Quality Management para software de saude no Brasil. Orquestra os 6 veto holders, consolida metricas dos 4 pilares (Software, Servico, Processo, Regulatorio). Coordena quality gates, auditorias de processo, CAPA, SLA monitoring e melhoria continua.",
     skills: ["Quality Gates", "Quality Audit", "Quality Dashboard", "SLA Monitor", "CAPA", "Melhoria Continua"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra & Qualidade", veto: "Nao", status: "Ativo" }
   },
   "Aurelio": {
     avatar: "Au", color: "av-teal",
     role: "Quality Auditor Interno",
-    nucleus: "N5 — Infra & Qualidade", version: "v1.0",
-    desc: "Auditor independente. Audita agentes, quality gates da Helena, mystery shopping Malu, compliance spot-check, post-mortem follow-up, metricas audit. Reporta direto ao KM — Humano (nao ao CPO). 12 regras, 9 skills.",
-    skills: ["Audit Agentes", "Mystery Shopping", "Compliance Spot-Check", "Post-Mortem Follow-Up", "Metricas Audit", "Quality Gate Audit", "Process Audit", "Report KM — Humano", "Independence Assurance"],
+    nucleus: "N5 \u2014 Infra & Qualidade", version: "v1.0",
+    desc: "Auditor independente. Audita agentes, quality gates da Helena, mystery shopping Malu, compliance spot-check, post-mortem follow-up, metricas audit. Reporta direto ao KM \u2014 Humano (nao ao CPO).",
+    skills: ["Audit Agentes", "Mystery Shopping", "Compliance Spot-Check", "Post-Mortem Follow-Up", "Metricas Audit"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra & Qualidade", veto: "Nao", status: "Ativo" }
+  },
+  "KM Sindico Pro": {
+    avatar: "SP", color: "av-teal",
+    role: "Gestao Condominial + Superlogica + Automacao IA",
+    nucleus: "N8 \u2014 Projetos Especiais", version: "v1.0",
+    desc: "Especialista senior em gestao condominial. 15+ anos administrando condominios. Dominio absoluto da legislacao brasileira (CC Art. 1.331-1.358, Lei 4.591/64, Lei 14.309/2022), profundo conhecimento da API Superlogica e expertise em automacao com IA (WhatsApp + RAG sobre atas). Projeto Sind IA Pro — Cond. Flamboyants (Sumare-SP) como piloto.",
+    skills: ["Legislacao Condominial", "Superlogica API", "Assembleias", "RAG Atas", "WhatsApp Automation", "Cobranca", "Mediacao"],
+    meta: { tipo: "Agente IA", nucleo: "N8 Especial", veto: "Nao", status: "Ativo" }
+  },
+  // Squad MKT members
+  "Pedro Pesquisa": {
+    avatar: "Pe", color: "av-cyan",
+    role: "Research de Mercado — Squad MKT Step 02",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Pesquisador de mercado do Squad Comercial-MKT. Analisa tendencias de saude, concorrencia, dados demograficos e comportamento de decisores (medicos-proprietarios, administradores). Alimenta todos os criadores de conteudo com insights baseados em dados.",
+    skills: ["Pesquisa de Mercado", "Analise Competitiva", "Tendencias Saude", "Dados Demograficos"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Yuri YouTube": {
+    avatar: "Yu", color: "av-red",
+    role: "Criador de Conteudo YouTube — Squad MKT",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Especialista em conteudo para YouTube voltado a gestores de saude. Cria roteiros, thumbnails e estrategias de canal para o @IASaudeFirst. Foco em conteudo educativo sobre IA aplicada a clinicas, gestao e produtividade medica.",
+    skills: ["Roteiros", "YouTube SEO", "Thumbnails", "Conteudo Educativo Saude"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Iago Instagram": {
+    avatar: "Ia", color: "av-pink",
+    role: "Criador de Conteudo Instagram — Squad MKT",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Especialista em conteudo para Instagram voltado a profissionais de saude. Cria carrosseis, reels e stories para atrair e engajar gestores de clinicas. Branding pessoal do KM \u2014 Humano via @klebermiguel10.",
+    skills: ["Carrosseis", "Reels", "Stories", "Instagram Ads", "Personal Branding"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Luna LinkedIn": {
+    avatar: "Lu", color: "av-blue",
+    role: "Criadora de Conteudo LinkedIn — Squad MKT",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Especialista em conteudo LinkedIn B2B para healthtech. Cria posts, artigos e carrosseis para posicionar KM \u2014 Humano como autoridade em IA aplicada a saude. Social selling para decisores de clinicas.",
+    skills: ["LinkedIn B2B", "Artigos", "Social Selling", "Thought Leadership", "Engagement"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Bernardo Blog": {
+    avatar: "Be", color: "av-green",
+    role: "Criador de Conteudo Blog/SEO — Squad MKT",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Especialista em conteudo para blog e SEO. Cria artigos otimizados para busca organica sobre gestao de clinicas, IA em saude, ERP e produtividade medica. Programmatic SEO para paginas de comparacao e alternativas.",
+    skills: ["SEO", "Blog Posts", "Programmatic SEO", "Keywords Saude", "Content Strategy"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Walter WhatsApp + Email": {
+    avatar: "Wa", color: "av-teal",
+    role: "Distribuicao WhatsApp + Email — Squad MKT",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Especialista em distribuicao de conteudo via WhatsApp Business e email marketing. Gerencia listas de broadcast, cadencias de nurturing e campanhas segmentadas por vertical (clinica, fisio, estetica, lab AP).",
+    skills: ["WhatsApp Business", "Email Marketing", "Nurturing", "Segmentacao", "Automacao"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
+  },
+  "Renata Revisao": {
+    avatar: "Rn", color: "av-pink",
+    role: "QA Editorial — Squad MKT Step 13",
+    nucleus: "N4 \u2014 Squad MKT", version: "v1.0",
+    desc: "Quality assurance editorial do Squad Comercial-MKT. Revisa consistencia de tom de voz, precisao tecnica, compliance regulatorio (CFM 2.454/2026 sobre publicidade medica) e padrao de marca antes de qualquer publicacao.",
+    skills: ["Revisao Editorial", "Tom de Voz", "CFM 2.454", "Brand Consistency", "QA Conteudo"],
+    meta: { tipo: "Squad MKT", nucleo: "N4 Squad MKT", veto: "Nao", status: "Ativo" }
   }
 };
+
+// ========== CONSOLIDATED MAP DATA ==========
+const mapEntries = [
+  { name: "Kleber Miguel", label: "Humano / Owner", border: "var(--gold)", nameColor: "var(--gold)" },
+  { name: "Vinicius Reis", label: "Humano / Dev VDF", border: "var(--gold)", nameColor: "var(--gold)" },
+  { name: "CEO KM", label: "Estrategia", border: "var(--accent-purple)" },
+  { name: "KM \u2014 CPO", label: "Produto", border: "var(--accent-blue)" },
+  { name: "Beth", label: "Secretaria", border: "var(--accent-pink)" },
+  { name: "Eduardo", label: "N1 VDF Archaeo", border: "var(--accent-blue)" },
+  { name: "Reinaldo", label: "N1 Architect", border: "var(--accent-blue)" },
+  { name: "Junior", label: "N1 Migrator", border: "var(--accent-blue)" },
+  { name: "Vinicius", label: "N1 Parity QA", border: "var(--accent-red)" },
+  { name: "Cicero", label: "N1 eSocial (D3)", border: "var(--accent-slate)" },
+  { name: "Gustavo", label: "N2 Malu", border: "var(--accent-green)" },
+  { name: "Juninho", label: "N2 Malu QA", border: "var(--accent-red)" },
+  { name: "Rafael", label: "N2 IA/LLM/RAG", border: "var(--accent-red)" },
+  { name: "Harry", label: "N3 Fiscal", border: "var(--accent-red)" },
+  { name: "Paulo Guedes", label: "N3 Financeiro", border: "var(--accent-orange)" },
+  { name: "Jorge Mendes", label: "N3 Contabil", border: "var(--accent-teal)" },
+  { name: "Dr. KM", label: "N3 Juridico", border: "var(--accent-purple)" },
+  { name: "Charl", label: "N3 SST", border: "var(--accent-orange)" },
+  { name: "Anderson Farah", label: "N3 DPO", border: "var(--accent-red)" },
+  { name: "Marco Antonio", label: "N4 Consultor", border: "var(--accent-purple)" },
+  { name: "Luis Sales", label: "N4 Vendas B2B", border: "var(--accent-green)" },
+  { name: "GjAlves", label: "N5 Infra", border: "var(--accent-red)" },
+  { name: "Fabio", label: "N5 Suporte", border: "var(--accent-blue)" },
+  { name: "Helena", label: "N5 QA Lead", border: "var(--accent-teal)" },
+  { name: "Aurelio", label: "N5 Quality Auditor", border: "var(--accent-teal)" },
+  { name: "Daniel", label: "N6 Data/BI", border: "var(--accent-lime)" },
+  { name: "Amanda", label: "N7 CS", border: "var(--accent-pink)" },
+  { name: "Lucas", label: "N7 UX/UI", border: "var(--accent-indigo)" },
+  { name: "KM Sindico Pro", label: "N8 Condominial", border: "var(--accent-teal)" },
+  { name: "Pedro Pesquisa", label: "MKT Research", border: "var(--accent-cyan)" },
+  { name: "Yuri YouTube", label: "MKT YouTube", border: "var(--accent-red)" },
+  { name: "Iago Instagram", label: "MKT Instagram", border: "var(--accent-pink)" },
+  { name: "Luna LinkedIn", label: "MKT LinkedIn", border: "var(--accent-blue)" },
+  { name: "Bernardo Blog", label: "MKT Blog/SEO", border: "var(--accent-green)" },
+  { name: "Walter WhatsApp + Email", label: "MKT WhatsApp", border: "var(--accent-teal)" },
+  { name: "Renata Revisao", label: "MKT QA Editorial", border: "var(--accent-pink)" }
+];
 
 // ========== MODAL FUNCTIONS ==========
 function openModal(agentName) {
@@ -1795,8 +1889,24 @@ function closeModal() {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ========== AUTO-BIND CLICK HANDLERS ==========
+// ========== RENDER CONSOLIDATED MAP ==========
 document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('mapGrid');
+  mapEntries.forEach(entry => {
+    const card = document.createElement('div');
+    card.className = 'map-card';
+    card.style.borderLeft = `3px solid ${entry.border}`;
+    const nameColor = entry.nameColor || 'var(--text)';
+    card.innerHTML = `
+      <div class="map-card-name" style="color:${nameColor}">${entry.name}</div>
+      <div class="map-card-role">${entry.label}</div>
+    `;
+    if (agents[entry.name]) {
+      card.addEventListener('click', () => openModal(entry.name));
+    }
+    grid.appendChild(card);
+  });
+
   // Bind .member elements by matching member-name text
   document.querySelectorAll('.member').forEach(el => {
     const nameEl = el.querySelector('.member-name');
@@ -1808,16 +1918,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
   // Bind hierarchy cards by matching card-name text
   document.querySelectorAll('.card').forEach(el => {
     const nameEl = el.querySelector('.card-name');
     if (nameEl) {
       const name = nameEl.textContent.trim();
-      // Map display names to agent keys
       const nameMap = {
         'Kleber Miguel': 'Kleber Miguel',
         'CEO KM': 'CEO KM',
-        'KM \u2014 CPO': 'KM — CPO',
+        'KM \u2014 CPO': 'KM \u2014 CPO',
         'Beth': 'Beth'
       };
       const key = nameMap[name] || name;
