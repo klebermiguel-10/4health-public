@@ -246,6 +246,7 @@
   .nucleus.n-data::before { background: linear-gradient(90deg, var(--accent-lime), var(--accent-green)); }
   .nucleus.n-cx::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple)); }
   .nucleus.n-special::before { background: linear-gradient(90deg, var(--accent-teal), var(--accent-lime)); }
+  .nucleus.n-wearable::before { background: linear-gradient(90deg, var(--accent-indigo), var(--accent-purple)); }
 
   .nucleus-header {
     display: flex;
@@ -271,6 +272,7 @@
   .n-data .nucleus-icon { background: rgba(132, 204, 22, 0.15); }
   .n-cx .nucleus-icon { background: rgba(236, 72, 153, 0.15); }
   .n-special .nucleus-icon { background: rgba(20, 184, 166, 0.15); }
+  .n-wearable .nucleus-icon { background: rgba(99, 102, 241, 0.15); }
 
   .nucleus-name {
     font-size: 14px;
@@ -802,10 +804,10 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v4.0 &mdash; 11 Abril 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v5.0 &mdash; 22 Abril 2026</div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">27</div>
+        <div class="stat-value">28</div>
         <div class="stat-label">Agentes IA</div>
       </div>
       <div class="stat">
@@ -817,7 +819,7 @@
         <div class="stat-label">Humanos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">8</div>
+        <div class="stat-value">9</div>
         <div class="stat-label">Nucleos</div>
       </div>
       <div class="stat">
@@ -862,9 +864,9 @@
     </div>
   </div>
 
-  <!-- ====== 8 NUCLEOS ====== -->
+  <!-- ====== 9 NUCLEOS ====== -->
   <div class="section">
-    <div class="section-title">8 Nucleos Operacionais</div>
+    <div class="section-title">9 Nucleos Operacionais</div>
     <div class="nucleus-grid">
 
       <!-- NUCLEO 1: VDF -->
@@ -1328,6 +1330,38 @@
         </div>
       </div>
 
+      <!-- NUCLEO 9: IA WEARABLE + MCP (NOVO v5.0 — 22 Abril 2026) -->
+      <div class="nucleus n-wearable">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#129406;</div>
+          <div>
+            <div class="nucleus-name">N9 &mdash; IA Wearable + MCP</div>
+            <div class="nucleus-desc">1 agente &mdash; Meta Health Agent (espelhado do Malu v3 em 22/04)</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-indigo">MH</div>
+            <div class="member-info">
+              <div class="member-name">Meta Health Agent</div>
+              <div class="member-spec">Ray-Ban Meta Gen 2 + Galaxy Watch 6 + MCP (FHIR/Postgres) + LGPD Art. 11 + CFM 2.314/2022 + CFM 2.454/2026</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Pipeline wearable &rarr; smartphone &rarr; ERP (D-27 a D-30 candidatos, Gate W pendente RIPD)</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Meta Health Agent</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas (mobile)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(16,185,129,0.1);color:var(--accent-green);">Gustavo (MCP server)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Rafael (modelo IA)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(20,184,166,0.1);color:var(--accent-teal);">Helena (gate LGPD/CFM)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Anderson Farah (RIPD)</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1497,8 +1531,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v4.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 11 Abril 2026</p>
-    <p style="margin-top:4px;">27 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 100+ skills &bull; 8 nucleos &bull; 6 agentes com poder de veto</p>
+    <p><strong>Organograma v5.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 22 Abril 2026</p>
+    <p style="margin-top:4px;">28 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 150+ skills &bull; 9 nucleos &bull; 6 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1512,7 +1546,7 @@ const agents = {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
     nucleus: "Comando", version: "v1.0",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 27 agentes IA e 2 humanos.",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 28 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
@@ -1740,6 +1774,14 @@ const agents = {
     skills: ["Legislacao Condominial", "Superlogica API", "Assembleias", "RAG Atas", "WhatsApp Automation", "Cobranca", "Mediacao"],
     meta: { tipo: "Agente IA", nucleo: "N8 Especial", veto: "Nao", status: "Ativo" }
   },
+  "Meta Health Agent": {
+    avatar: "MH", color: "av-indigo",
+    role: "Arquiteto Wearable + MCP + Healthcare BR Specialist",
+    nucleus: "N9 — IA Wearable + MCP", version: "v1.0",
+    desc: "Especialista em wearable computing aplicado a saude. Domina Ray-Ban Meta Gen 2 (Wearables Device Access Toolkit), Galaxy Watch 6 (Wear OS + Samsung Health SDK), Model Context Protocol (FHIR + Postgres + SQLite servers) e arquitetura de pipeline wearable → smartphone relay → MCP → ERP 4Health. PhD em compliance brasileiro de saude digital: LGPD Art. 11 + CFM 2.314/2022 (telemedicina) + CFM 2.454/2026 (IA em saude) — NAO HIPAA. Criado no Malu v3 em 17/04/2026, espelhado no 4Health central em 22/04/2026. Decisoes candidatas D-27 a D-30 pendentes de formalizacao no PRD MASTER. Gate W (wearable) bloqueado por RIPD do Anderson Farah + 4 ADRs (027/028/029/030). Audit consultoria 17/04: Rafael 6.4/10 TOPAR + Helena 3.93/10 GO COM RESERVAS Camada Zero, NO-GO clinico ate G3.",
+    skills: ["Ray-Ban Meta DAT SDK", "Galaxy Watch 6 Wear OS", "MCP Server Design", "FHIR Interop", "Voice-to-Action", "Pipeline Wearable", "LGPD Art. 11", "CFM 2.314/2022", "CFM 2.454/2026"],
+    meta: { tipo: "Agente IA", nucleo: "N9 Wearable + MCP", veto: "Nao", status: "Ativo" }
+  },
   // Squad MKT members
   "Pedro Pesquisa": {
     avatar: "Pe", color: "av-cyan",
@@ -1830,6 +1872,7 @@ const mapEntries = [
   { name: "Amanda", label: "N7 CS", border: "var(--accent-pink)" },
   { name: "Lucas", label: "N7 UX/UI", border: "var(--accent-indigo)" },
   { name: "KM Sindico Pro", label: "N8 Condominial", border: "var(--accent-teal)" },
+  { name: "Meta Health Agent", label: "N9 Wearable + MCP", border: "var(--accent-indigo)" },
   { name: "Pedro Pesquisa", label: "MKT Research", border: "var(--accent-cyan)" },
   { name: "Yuri YouTube", label: "MKT YouTube", border: "var(--accent-red)" },
   { name: "Iago Instagram", label: "MKT Instagram", border: "var(--accent-pink)" },
