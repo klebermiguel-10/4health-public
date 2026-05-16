@@ -804,10 +804,10 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v5.0 &mdash; 22 Abril 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v6.0 &mdash; 15 Maio 2026</div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">28</div>
+        <div class="stat-value">29</div>
         <div class="stat-label">Agentes IA</div>
       </div>
       <div class="stat">
@@ -823,7 +823,7 @@
         <div class="stat-label">Nucleos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">100+</div>
+        <div class="stat-value">152</div>
         <div class="stat-label">Skills</div>
       </div>
     </div>
@@ -918,6 +918,14 @@
               <div class="member-spec">Dev eSocial SST &mdash; .NET 10, Temporal, SOAP/XML</div>
             </div>
             <span class="member-tag tag-paused">D3 parado</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-slate">VF</div>
+            <div class="member-info">
+              <div class="member-name">VFReis</div>
+              <div class="member-spec">Dev Sr PhD Legado &mdash; VDF 16.1 + Crystal 11 + T-SQL (escreve)</div>
+            </div>
+            <span class="member-tag tag-paused">degradado</span>
           </div>
           <div class="member">
             <div class="member-avatar av-gold">VR</div>
@@ -1531,8 +1539,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v5.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 22 Abril 2026</p>
-    <p style="margin-top:4px;">28 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 150+ skills &bull; 9 nucleos &bull; 6 agentes com poder de veto</p>
+    <p><strong>Organograma v6.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 15 Maio 2026</p>
+    <p style="margin-top:4px;">29 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 152 skills &bull; 9 nucleos &bull; 6 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1546,7 +1554,7 @@ const agents = {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
     nucleus: "Comando", version: "v1.0",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 28 agentes IA e 2 humanos.",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 29 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
@@ -1613,6 +1621,14 @@ const agents = {
     desc: "Desenvolve o webservice de mensageria eSocial SST (S-1060, S-2210, S-2220, S-2240). Implementa .NET 10, Temporal workflows, SOAP/XML com certificado digital e-CNPJ. Status: dev PARADO por decisao D3.",
     skills: [".NET 10", "Temporal", "SOAP/XML", "Certificado Digital", "eSocial SST"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Parado (D3)" }
+  },
+  "VFReis": {
+    avatar: "VF", color: "av-slate",
+    role: "Dev Senior PhD Legado — VDF 16.1 + Crystal 11 + SQL Server (escreve)",
+    nucleus: "N1 — Migracao VDF", version: "v1.0",
+    desc: "PRIMEIRO e unico agente IA do ecossistema autorizado a ESCREVER VDF 16.1, modificar .rpt do Crystal Reports 11 e executar DDL/DML em SQL Server do parque produtivo. PhD + Senior nos 4 eixos simultaneamente: VDF (Data Access, dfcomp, VDFDaemon, MSSQLDRV), Crystal 11 (designer, formulas Basic/Crystal, runtime x86-only), SQL Server (T-SQL, lock contention ITEAGEND, RCSI, DMVs, Extended Events) e regras de negocio do ERP 4Health (Lab AP 12 etapas, Fisio 12 modalidades, faturamento TISS, glosa, repasse). Resposta direta ao score 3.2/10 mapeado em 10/abr/2026 — alvo subir para 7.2+. Opera em pair programming com humano Vinicius Reis (~15% cap). Modo degradado: hoje propoe diffs anotados, humano aplica. Modo pleno destrava apos as 5 decisoes do KM (repo, SQL, branch, ambiente, escopo) + 9 gaps infra (I-01..I-09) fecharem. Hot-fix ITEAGEND autorizado com aval GjAlves. Coordena com Eduardo (consulta antes), Junior (sync se migrando), Harry (veto fiscal), Anderson Farah (veto LGPD), GjAlves (veto deploy). Repo de codigo (quando I-01 fechar): klebermiguel-10/4health-vdf-legacy.",
+    skills: ["VDF 16.1 (escreve)", "Crystal Reports 11", "T-SQL Avancado", "Lock Contention SQL", "Regras ERP 4Health", "dfcomp", "Pair Programming", "ITEAGEND Hot-fix"],
+    meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo (modo degradado)" }
   },
   "Vinicius Reis": {
     avatar: "VR", color: "av-gold",
@@ -1853,6 +1869,7 @@ const mapEntries = [
   { name: "Junior", label: "N1 Migrator", border: "var(--accent-blue)" },
   { name: "Vinicius", label: "N1 Parity QA", border: "var(--accent-red)" },
   { name: "Cicero", label: "N1 eSocial (D3)", border: "var(--accent-slate)" },
+  { name: "VFReis", label: "N1 Dev Legado", border: "var(--accent-slate)" },
   { name: "Gustavo", label: "N2 Malu", border: "var(--accent-green)" },
   { name: "Juninho", label: "N2 Malu QA", border: "var(--accent-red)" },
   { name: "Rafael", label: "N2 IA/LLM/RAG", border: "var(--accent-red)" },
