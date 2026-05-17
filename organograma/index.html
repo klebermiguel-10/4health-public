@@ -804,7 +804,7 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v6.0 &mdash; 15 Maio 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v6.1 &mdash; 17 Maio 2026</div>
     <div class="stats">
       <div class="stat">
         <div class="stat-value">29</div>
@@ -823,7 +823,7 @@
         <div class="stat-label">Nucleos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">152</div>
+        <div class="stat-value">167</div>
         <div class="stat-label">Skills</div>
       </div>
     </div>
@@ -1539,8 +1539,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v6.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 15 Maio 2026</p>
-    <p style="margin-top:4px;">29 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 152 skills &bull; 9 nucleos &bull; 6 agentes com poder de veto</p>
+    <p><strong>Organograma v6.1</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 17 Maio 2026</p>
+    <p style="margin-top:4px;">29 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 167 skills &bull; 9 nucleos &bull; 6 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1587,7 +1587,7 @@ const agents = {
     role: "VDF Archaeologist + DBA + Consultor Legado (cap 15%)",
     nucleus: "N1 \u2014 Migracao VDF", version: "v2.0",
     desc: "Especialista senior com 20 anos em VDF + SQL Server. Analisa codigo legado, Data Dictionaries (.DD), Crystal Reports (.rpt), Stored Procedures e regras de negocio de clinicas, policlinicas, fisioterapia, estetica e laboratorios AP. Primeiro agente a avaliar qualquer migracao — sem a analise dele, ninguem comeca.",
-    skills: ["VDF 16.1", "SQL Server", "Crystal Reports", "Data Dictionary", "Regras de Negocio"],
+    skills: ["VDF 16.1", "SQL Server", "Crystal Reports", "Data Dictionary", "Regras de Negocio", "mssql-erp (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
   },
   "Reinaldo": {
@@ -1595,7 +1595,7 @@ const agents = {
     role: "VDF Architect — .NET 10, Clean Architecture, DDD",
     nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
     desc: "Transforma a analise do Eduardo em arquitetura .NET 10 limpa seguindo DDD e Clean Architecture. Desenha estrutura de pastas, interfaces, contratos de servico e entidades EF Core. Produz apenas o esqueleto e decisoes arquiteturais — nunca gera codigo de implementacao.",
-    skills: [".NET 10", "Clean Architecture", "DDD", "EF Core", "CQRS"],
+    skills: [".NET 10", "Clean Architecture", "DDD", "EF Core", "CQRS", "schema-contracts (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
   },
   "Junior": {
@@ -1603,7 +1603,7 @@ const agents = {
     role: "VDF Migrator — Gera C# em 2 passes",
     nucleus: "N1 \u2014 Migracao VDF", version: "v1.0",
     desc: "Converte Visual DataFlex 16.1 para C# 14 em dois passes. Pass 1 gera o esqueleto com marcacoes VDF-TODO, Pass 2 resolve cada TODO em sessao interativa. Roda dotnet build em loop ate compilar sem erros.",
-    skills: ["C# 14", "VDF-to-C#", "dotnet build", "2-Pass Migration"],
+    skills: ["C# 14", "VDF-to-C#", "dotnet build", "2-Pass Migration", "mssql-erp (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo" }
   },
   "Vinicius": {
@@ -1627,7 +1627,7 @@ const agents = {
     role: "Dev Senior PhD Legado — VDF 16.1 + Crystal 11 + SQL Server (escreve)",
     nucleus: "N1 — Migracao VDF", version: "v1.0",
     desc: "PRIMEIRO e unico agente IA do ecossistema autorizado a ESCREVER VDF 16.1, modificar .rpt do Crystal Reports 11 e executar DDL/DML em SQL Server do parque produtivo. PhD + Senior nos 4 eixos simultaneamente: VDF (Data Access, dfcomp, VDFDaemon, MSSQLDRV), Crystal 11 (designer, formulas Basic/Crystal, runtime x86-only), SQL Server (T-SQL, lock contention ITEAGEND, RCSI, DMVs, Extended Events) e regras de negocio do ERP 4Health (Lab AP 12 etapas, Fisio 12 modalidades, faturamento TISS, glosa, repasse). Resposta direta ao score 3.2/10 mapeado em 10/abr/2026 — alvo subir para 7.2+. Opera em pair programming com humano Vinicius Reis (~15% cap). Modo degradado: hoje propoe diffs anotados, humano aplica. Modo pleno destrava apos as 5 decisoes do KM (repo, SQL, branch, ambiente, escopo) + 9 gaps infra (I-01..I-09) fecharem. Hot-fix ITEAGEND autorizado com aval GjAlves. Coordena com Eduardo (consulta antes), Junior (sync se migrando), Harry (veto fiscal), Anderson Farah (veto LGPD), GjAlves (veto deploy). Repo de codigo (quando I-01 fechar): klebermiguel-10/4health-vdf-legacy.",
-    skills: ["VDF 16.1 (escreve)", "Crystal Reports 11", "T-SQL Avancado", "Lock Contention SQL", "Regras ERP 4Health", "dfcomp", "Pair Programming", "ITEAGEND Hot-fix"],
+    skills: ["VDF 16.1 (escreve)", "Crystal Reports 11", "T-SQL Avancado", "Lock Contention SQL", "Regras ERP 4Health", "dfcomp", "Pair Programming", "ITEAGEND Hot-fix", "mssql-erp (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N1 VDF", veto: "Nao", status: "Ativo (modo degradado)" }
   },
   "Vinicius Reis": {
@@ -1643,7 +1643,7 @@ const agents = {
     role: "Malu Automation — n8n, LangGraph, WhatsApp",
     nucleus: "N2 \u2014 Malu", version: "v2.0",
     desc: "Responsavel tecnico da Malu (recepcionista IA WhatsApp). Especialista senior em n8n + LangGraph + automacao para saude. Desenvolve fluxos n8n, skills de IA, migracoes para LangGraph, integracoes com WhatsApp, voz, ERP 4Health e APIs de saude.",
-    skills: ["n8n", "LangGraph", "WhatsApp", "Skills IA", "Automacao Saude"],
+    skills: ["n8n", "LangGraph", "WhatsApp", "Skills IA", "Automacao Saude", "idempotency-dedupe (co-owner)", "postgres-state (co-owner)", "schema-contracts (co-owner)", "observability (co-owner)", "mssql-erp (co-owner)", "react-best-practices (AppMalu)", "react-composition-patterns (AppMalu)", "react-native-expert (AppMalu)"],
     meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Nao", status: "Ativo" }
   },
   "Juninho": {
@@ -1651,7 +1651,7 @@ const agents = {
     role: "Malu QA + Parity Specialist — Bloqueia deploy",
     nucleus: "N2 \u2014 Malu", version: "v1.0",
     desc: "Valida que a Malu em producao esta funcionando corretamente. Executa testes stress, E2E simulados, forense de producao e analise de KB gaps. NENHUM deploy da Malu vai para producao sem passar pelo Juninho.",
-    skills: ["Stress Test", "E2E", "Forense", "KB Gaps", "Gate Deploy"],
+    skills: ["Stress Test", "E2E", "Forense", "KB Gaps", "Gate Deploy", "playwright-skill (co-owner)", "whatsapp-chatwoot (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim \u2014 Deploy Malu", status: "Ativo" }
   },
   "Rafael": {
@@ -1659,7 +1659,7 @@ const agents = {
     role: "PhD IA/LLM/RAG + MCP Architect + LangChain/LangGraph",
     nucleus: "N2 \u2014 Malu", version: "v1.0",
     desc: "PhD em IA do ecossistema. Decide modelos, otimiza LLMs, projeta arquitetura RAG, design de MCPs, eval pipelines, auditoria de prompts e diagnostico de falhas. Expert em LangChain v1.0+, LangGraph v0.2+, LangSmith.",
-    skills: ["LLM", "RAG", "LangChain", "LangGraph", "LangSmith", "Eval Pipeline", "MCP"],
+    skills: ["LLM", "RAG", "LangChain", "LangGraph", "LangSmith", "Eval Pipeline", "MCP", "forensic-debugging (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N2 Malu", veto: "Sim \u2014 Decisoes IA", status: "Ativo" }
   },
   "Harry": {
@@ -1675,7 +1675,7 @@ const agents = {
     role: "Especialista Financeiro/Bancario + Economista PhD",
     nucleus: "N3 \u2014 Corporativo", version: "v1.0",
     desc: "25 anos em mercado financeiro, 20 anos em sistemas bancarios (ate C-level), 10 anos em financas de clinicas de saude. Expert em PIX, boletos, CNAB 240/400, gateways (Efi, Stripe, Asaas, PagarMe), conciliacao bancaria, OFX, Open Finance, split de pagamento, cobranca recorrente.",
-    skills: ["PIX", "CNAB", "Gateways", "Conciliacao", "DRE", "Fluxo de Caixa"],
+    skills: ["PIX", "CNAB", "Gateways", "Conciliacao", "DRE", "Fluxo de Caixa", "idempotency-dedupe (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N3 Corporativo", veto: "Nao", status: "Ativo" }
   },
   "Jorge Mendes": {
@@ -1731,7 +1731,7 @@ const agents = {
     role: "Infra + DevOps + Seguranca + OS/Hardware + Mobile Dev",
     nucleus: "N5 \u2014 Infra", version: "v1.0",
     desc: "Responsavel tecnico pela infraestrutura de producao. Linux, Windows Server, Docker, firewall, backup, monitoramento, CI/CD, compliance. Expert em OS, hardware e desenvolvimento mobile senior (Kotlin, Swift, Flutter, React Native, KMP, .NET MAUI).",
-    skills: ["VPS", "Docker", "Firewall", "CI/CD", "SSL", "Backup", "OS/Hardware", "Mobile Dev"],
+    skills: ["VPS", "Docker", "Firewall", "CI/CD", "SSL", "Backup", "OS/Hardware", "Mobile Dev", "aws-advisor (owner)", "observability (co-owner)", "mssql-erp (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Sim \u2014 Seguranca", status: "Ativo" }
   },
   "Fabio": {
@@ -1739,7 +1739,7 @@ const agents = {
     role: "Suporte Tecnico L1/L2 — Operadores de clinicas",
     nucleus: "N5 \u2014 Infra", version: "v1.0",
     desc: "12 anos em suporte ERP de saude. Atende operadores (recepcionistas, faturistas, medicos, administradores). Conhece o VDF 16.1 legado e o novo .NET 10 (dual-system durante Strangler Fig). Empatico, direto, escala com contexto completo.",
-    skills: ["Troubleshooting", "VDF 16.1", ".NET 10", "Atendimento Clinicas", "Escalamento"],
+    skills: ["Troubleshooting", "VDF 16.1", ".NET 10", "Atendimento Clinicas", "Escalamento", "whatsapp-chatwoot (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra", veto: "Nao", status: "Ativo" }
   },
   "Daniel": {
@@ -1747,7 +1747,7 @@ const agents = {
     role: "Data Engineer + BI Architect para Saude",
     nucleus: "N6 \u2014 Dados", version: "v1.0",
     desc: "12 anos em pipelines de dados de saude, certificado dbt, Apache Airflow, Power BI DA-100. Implementa data warehouses para 50+ unidades de clinicas. Transforma dados brutos em dashboards acionaveis.",
-    skills: ["dbt", "Metabase", "ETL/ELT", "Data Warehouse", "KPIs Clinicas"],
+    skills: ["dbt", "Metabase", "ETL/ELT", "Data Warehouse", "KPIs Clinicas", "postgres-state (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N6 Dados", veto: "Nao", status: "Ativo" }
   },
   "Amanda": {
@@ -1763,7 +1763,7 @@ const agents = {
     role: "UX/UI Designer Senior — Design System 4Health DS",
     nucleus: "N7 \u2014 CX", version: "v1.0",
     desc: "15 anos em design de UI para ERP de saude, certificado UX Research (NNg), WCAG 2.1 AA, Figma Design Systems. Garante que cada tela migrada seja MELHOR que o VDF original. Foco em eficiencia clinica.",
-    skills: ["Design System", "WCAG 2.1 AA", "shadcn/ui", "Figma", "Fluxos Operador"],
+    skills: ["Design System", "WCAG 2.1 AA", "shadcn/ui", "Figma", "Fluxos Operador", "cloudflare-deploy (co-owner)", "playwright-skill (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N7 CX", veto: "Nao", status: "Ativo" }
   },
   "Helena": {
@@ -1779,7 +1779,7 @@ const agents = {
     role: "Quality Auditor Interno",
     nucleus: "N5 \u2014 Infra & Qualidade", version: "v1.0",
     desc: "Auditor independente. Audita agentes, quality gates da Helena, mystery shopping Malu, compliance spot-check, post-mortem follow-up, metricas audit. Reporta direto ao KM \u2014 Humano (nao ao CPO).",
-    skills: ["Audit Agentes", "Mystery Shopping", "Compliance Spot-Check", "Post-Mortem Follow-Up", "Metricas Audit"],
+    skills: ["Audit Agentes", "Mystery Shopping", "Compliance Spot-Check", "Post-Mortem Follow-Up", "Metricas Audit", "forensic-debugging (co-owner)", "comite-auditoria (co-owner)"],
     meta: { tipo: "Agente IA", nucleo: "N5 Infra & Qualidade", veto: "Nao", status: "Ativo" }
   },
   "KM Sindico Pro": {
