@@ -248,6 +248,7 @@
   .nucleus.n-special::before { background: linear-gradient(90deg, var(--accent-teal), var(--accent-lime)); }
   .nucleus.n-wearable::before { background: linear-gradient(90deg, var(--accent-indigo), var(--accent-purple)); }
   .nucleus.n-governance::before { background: linear-gradient(90deg, var(--gold), var(--accent-orange)); }
+  .nucleus.n-frontend::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan)); }
 
   .nucleus-header {
     display: flex;
@@ -275,6 +276,7 @@
   .n-special .nucleus-icon { background: rgba(20, 184, 166, 0.15); }
   .n-wearable .nucleus-icon { background: rgba(99, 102, 241, 0.15); }
   .n-governance .nucleus-icon { background: rgba(251, 191, 36, 0.15); }
+  .n-frontend .nucleus-icon { background: rgba(139, 92, 246, 0.15); }
 
   .nucleus-name {
     font-size: 14px;
@@ -806,10 +808,10 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v7.4 &mdash; 05 Julho 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v8.0 &mdash; 06 Julho 2026</div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">30</div>
+        <div class="stat-value">31</div>
         <div class="stat-label">Agentes IA</div>
       </div>
       <div class="stat">
@@ -821,11 +823,11 @@
         <div class="stat-label">Humanos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">10</div>
+        <div class="stat-value">11</div>
         <div class="stat-label">Nucleos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">204</div>
+        <div class="stat-value">209</div>
         <div class="stat-label">Skills</div>
       </div>
     </div>
@@ -868,7 +870,7 @@
 
   <!-- ====== 10 NUCLEOS ====== -->
   <div class="section">
-    <div class="section-title">10 Nucleos Operacionais</div>
+    <div class="section-title">11 Nucleos Operacionais</div>
     <div class="nucleus-grid">
 
       <!-- NUCLEO 1: VDF -->
@@ -1402,6 +1404,36 @@
         </div>
       </div>
 
+      <!-- NUCLEO 11: ENGENHARIA FRONTEND WEB (NOVO v8.0 — 06 Julho 2026) -->
+      <div class="nucleus n-frontend">
+        <div class="nucleus-header">
+          <div class="nucleus-icon">&#128421;</div>
+          <div>
+            <div class="nucleus-name">N11 &mdash; Engenharia Frontend Web</div>
+            <div class="nucleus-desc">1 agente &mdash; Théo (criado em 06/07/2026 &mdash; fecha o gap de web-frontend do ecossistema)</div>
+          </div>
+        </div>
+        <div class="nucleus-members">
+          <div class="member">
+            <div class="member-avatar av-purple">Th</div>
+            <div class="member-info">
+              <div class="member-name">Théo</div>
+              <div class="member-spec">Next.js 16/RSC + React 19 + shadcn/ui + TanStack + Tailwind 4 &mdash; SaaS multi-tenant, widget embutivel, site-builder, funil PLG, entitlements, billing BR (Liora-SAAS)</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-label">Fluxo Frontend (Lucas desenha &rarr; Théo implementa &rarr; gates de deploy e LGPD)</div>
+          <div class="flow-steps">
+            <span class="flow-step" style="background:rgba(99,102,241,0.1);color:var(--accent-indigo);">Lucas (UX/design/tokens)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(139,92,246,0.1);color:var(--accent-purple);">Théo (codigo de producao)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">Anderson + Helena (gate LGPD-health)</span><span class="flow-arrow">&rarr;</span>
+            <span class="flow-step" style="background:rgba(239,68,68,0.1);color:var(--accent-red);">GjAlves + Juninho (veto deploy)</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1531,7 +1563,7 @@
 
   <!-- ====== MAPA CONSOLIDADO ====== -->
   <div class="section">
-    <div class="section-title">Mapa Consolidado &mdash; 37 Agentes</div>
+    <div class="section-title">Mapa Consolidado &mdash; 38 Agentes</div>
     <div class="map-grid" id="mapGrid">
       <!-- Populated by JS -->
     </div>
@@ -1577,8 +1609,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v7.4</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 05 Julho 2026</p>
-    <p style="margin-top:4px;">30 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 197 skills &bull; 10 nucleos &bull; 7 agentes com poder de veto</p>
+    <p><strong>Organograma v8.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 06 Julho 2026</p>
+    <p style="margin-top:4px;">31 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 209 skills &bull; 11 nucleos &bull; 7 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1592,7 +1624,7 @@ const agents = {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
     nucleus: "Comando", version: "v1.0",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 30 agentes IA e 2 humanos.",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 31 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
@@ -1844,6 +1876,14 @@ const agents = {
     skills: ["MANIFEST.yaml ownership", "skill-sync-check", "skill-sync-apply", "skill-architect", "skill-creator", "Governance v1.0.0", "Regra 16 enforcement", "Drift detection"],
     meta: { tipo: "Agente IA", nucleo: "N10 Governanca", veto: "Nao", status: "Ativo" }
   },
+  "Théo": {
+    avatar: "Th", color: "av-purple",
+    role: "Engenheiro Frontend Web Senior — Liora-SAAS multi-tenant",
+    nucleus: "N11 — Engenharia Frontend Web", version: "v1.0",
+    desc: "Engenheiro de frontend web senior (12 anos em SaaS B2B multi-tenant de producao). Dono do web-frontend do ecossistema 4Health/Liora-SAAS — o gap que faltava no organograma. Constroi em Next.js 16 (App Router + RSC), React 19, shadcn/ui (Base UI), TanStack Query/Table, Tailwind 4 e TypeScript estrito: dashboards multi-tenant, widget embutivel (Shadow DOM + iframe sandboxed + token efemero), motor de site-builder por tenant (sobre Puck), funil PLG self-serve (landing/signup/login/onboarding/settings), entitlements/paywall no client (CASL espelhando authZ server OpenFGA/SpiceDB) e UI de billing BR. Par de engenharia do Lucas: Lucas decide UX/design/tokens, Théo constroi a tela em codigo de producao. Fronteira: IMPLEMENTA o que Lucas DESENHA; NUNCA reimplementa auth (Keycloak), billing (Paulo Guedes) nem model routing (Rafael). PHI (voz/texto/nome/DOB) zero-egress para nuvem US — mascaramento no server, roteamento local (LGPD Art. 11/33); cross-tenant leak = P0. Gate LGPD-health = veto Anderson Farah (DPO) + Helena (compliance clinica); deploy = veto GjAlves + Juninho. Owner de 5 skills hub-native (frontend-saas-multitenancy, embed-widget-sdk, site-builder-runtime, plg-onboarding-optimizer, entitlements-architect). Criado em 06/07/2026.",
+    skills: ["Next.js 16 App Router/RSC", "React 19", "shadcn/ui + Base UI", "TanStack Query/Table", "Tailwind 4", "Shadow DOM + postMessage", "Site-builder (Puck)", "PLG self-serve", "Entitlements (CASL/OpenFGA)", "Keycloak OIDC (client)"],
+    meta: { tipo: "Agente IA", nucleo: "N11 Frontend Web", veto: "Nao", status: "Ativo" }
+  },
   // Squad MKT members
   "Pedro Pesquisa": {
     avatar: "Pe", color: "av-cyan",
@@ -1937,6 +1977,7 @@ const mapEntries = [
   { name: "KM Sindico Pro", label: "N8 Condominial", border: "var(--accent-teal)" },
   { name: "Meta Health Agent", label: "N9 Wearable + MCP", border: "var(--accent-indigo)" },
   { name: "skill-librarian", label: "N10 Governanca Skills", border: "var(--gold)", nameColor: "var(--gold)" },
+  { name: "Théo", label: "N11 Frontend Web", border: "var(--accent-purple)" },
   { name: "Pedro Pesquisa", label: "MKT Research", border: "var(--accent-cyan)" },
   { name: "Yuri YouTube", label: "MKT YouTube", border: "var(--accent-red)" },
   { name: "Iago Instagram", label: "MKT Instagram", border: "var(--accent-pink)" },
