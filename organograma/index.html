@@ -808,10 +808,10 @@
   <!-- ====== HEADER ====== -->
   <div class="header">
     <h1>Ecossistema 4Health + Malu + KM Tech</h1>
-    <div class="subtitle">Organograma Operacional &mdash; v8.0 &mdash; 06 Julho 2026</div>
+    <div class="subtitle">Organograma Operacional &mdash; v9.0 &mdash; 17 Julho 2026</div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">31</div>
+        <div class="stat-value">32</div>
         <div class="stat-label">Agentes IA</div>
       </div>
       <div class="stat">
@@ -1097,7 +1097,7 @@
           <div class="nucleus-icon">&#127919;</div>
           <div>
             <div class="nucleus-name">N4 &mdash; Estrategia, Vendas, Mercado & Conteudo</div>
-            <div class="nucleus-desc">2 agentes + Squad MKT (7)</div>
+            <div class="nucleus-desc">3 agentes + Squad MKT (7)</div>
           </div>
         </div>
         <div class="nucleus-members">
@@ -1114,6 +1114,14 @@
             <div class="member-info">
               <div class="member-name">Luis Sales</div>
               <div class="member-spec">Vendas B2B + SDR + Growth &mdash; Pipeline, outreach, closer</div>
+            </div>
+            <span class="member-tag tag-active">v1.0</span>
+          </div>
+          <div class="member">
+            <div class="member-avatar av-red">VV</div>
+            <div class="member-info">
+              <div class="member-name">Victor Video</div>
+              <div class="member-spec">Editor de Video + Content Repurposer &mdash; cortes, briefing, copy por canal, thumbnail</div>
             </div>
             <span class="member-tag tag-active">v1.0</span>
           </div>
@@ -1609,8 +1617,8 @@
 
   <!-- ====== FOOTER ====== -->
   <div class="footer">
-    <p><strong>Organograma v8.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 06 Julho 2026</p>
-    <p style="margin-top:4px;">31 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 209 skills &bull; 11 nucleos &bull; 7 agentes com poder de veto</p>
+    <p><strong>Organograma v9.0</strong> &mdash; Ecossistema 4Health + Malu + KM Tech &mdash; 17 Julho 2026</p>
+    <p style="margin-top:4px;">32 agentes IA &bull; 7 squad MKT &bull; 2 humanos &bull; 209 skills &bull; 11 nucleos &bull; 7 agentes com poder de veto</p>
     <p style="margin-top:8px;font-size:12px;font-weight:600;opacity:0.7;">4Health &mdash; Health Tech IA-First</p>
     <p style="margin-top:4px;font-size:11px;opacity:0.5;">Idealizado e implementado por Kleber Miguel &middot; Fundador &amp; CPO</p>
   </div>
@@ -1624,7 +1632,7 @@ const agents = {
     avatar: "KM", color: "av-gold",
     role: "Owner / Fundador / CPO — Decisao Final Absoluta",
     nucleus: "Comando", version: "v1.0",
-    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 31 agentes IA e 2 humanos.",
+    desc: "Fundador e CPO do ecossistema 4Health + Malu + KM Tech. Mais de 20 anos de experiencia em sistemas de saude. Toma todas as decisoes estrategicas e de produto. Ponto unico de comando sobre os 32 agentes IA e 2 humanos.",
     skills: ["Estrategia", "Produto", "Saude Privada", "Gestao de Time IA"],
     meta: { tipo: "Humano", nucleo: "Comando", veto: "Absoluto", status: "Ativo" }
   },
@@ -1884,6 +1892,14 @@ const agents = {
     skills: ["Next.js 16 App Router/RSC", "React 19", "shadcn/ui + Base UI", "TanStack Query/Table", "Tailwind 4", "Shadow DOM + postMessage", "Site-builder (Puck)", "PLG self-serve", "Entitlements (CASL/OpenFGA)", "Keycloak OIDC (client)"],
     meta: { tipo: "Agente IA", nucleo: "N11 Frontend Web", veto: "Nao", status: "Ativo" }
   },
+  "Victor Video": {
+    avatar: "VV", color: "av-red",
+    role: "Editor de Video + Content Repurposer",
+    nucleus: "N4 — Estrategia, Vendas, Mercado & Conteudo", version: "v1.0",
+    desc: "Editor de video e content repurposer. Espelho hub do agente OpenSquad comercial-mkt (canonico em squads/comercial-mkt/agents/video-editor.agent.md). Recebe video bruto e transforma em pecas multi-canal: transcreve (Whisper/NotebookLM), sugere cortes com timestamps, gera briefing de edicao, escreve copy por canal e sugere thumbnail. NAO renderiza o video — alimenta opus-clip (skill stub, API closed beta), freelancer (premium) ou image-ai-generator (thumbnail). Pensa em reaproveitamento maximo por minuto gravado (15min -> 3-5 cortes + Reel + Short + Stories). Coordena entrega com Iago (IG), Yuri (YT) e Luna (LI). Gate LGPD (Anderson Farah) se o bruto expoe paciente/clinica. Formalizado como 32o agente individual em 17/07/2026 (PR #105).",
+    skills: ["Transcricao", "Cortes/Timestamps", "Briefing de Edicao", "Copy por Canal", "Thumbnail", "opus-clip (stub)", "ElevenLabs", "CapCut", "Content Repurposing"],
+    meta: { tipo: "Agente IA", nucleo: "N4 Estrategia", veto: "Nao", status: "Ativo" }
+  },
   // Squad MKT members
   "Pedro Pesquisa": {
     avatar: "Pe", color: "av-cyan",
@@ -1978,6 +1994,7 @@ const mapEntries = [
   { name: "Meta Health Agent", label: "N9 Wearable + MCP", border: "var(--accent-indigo)" },
   { name: "skill-librarian", label: "N10 Governanca Skills", border: "var(--gold)", nameColor: "var(--gold)" },
   { name: "Théo", label: "N11 Frontend Web", border: "var(--accent-purple)" },
+  { name: "Victor Video", label: "N4 Video/Conteudo", border: "var(--accent-red)" },
   { name: "Pedro Pesquisa", label: "MKT Research", border: "var(--accent-cyan)" },
   { name: "Yuri YouTube", label: "MKT YouTube", border: "var(--accent-red)" },
   { name: "Iago Instagram", label: "MKT Instagram", border: "var(--accent-pink)" },
